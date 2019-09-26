@@ -22,6 +22,7 @@ class User(db.Model):
 def hello_world():
     return 'Hello World!'
 
+
 @app.route('/login', methods = ['POST'])
 def login():
     data = request.json

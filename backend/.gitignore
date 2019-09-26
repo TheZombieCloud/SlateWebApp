@@ -1,2 +1,4 @@
 #idea
 /.idea
+site.db
+.DS_Store

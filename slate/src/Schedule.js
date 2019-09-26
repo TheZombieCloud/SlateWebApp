@@ -1,4 +1,5 @@
 import React from 'react';
+import AddScheduleBlock from "./AddScheduleBlock";
 import ReactDOM from 'react-dom';
 
 class ScheduleBlock {

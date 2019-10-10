@@ -19,7 +19,7 @@ class User(db.Model):
 
 class Time(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    user_id = db.Column(db.String(20), nullable=False, unique=False)
+    user_id = db.Column(db.Integer, nullable=False, unique=False)
     start = db.Column(db.Integer, nullable=False, unique=False)
     end = db.Column(db.Integer, nullable=False, unique=False)
     day = db.Column(db.Integer, nullable=False, unique=False)
@@ -29,6 +29,16 @@ class Time(db.Model):
         return f"{{'start':'{self.start}', 'end':'{self.end}', 'day':'{self.day}'}}"
     def __lt__(self, other):
         return self.start < other.start
+
+class Friend(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, nullable=False, unique=False)
+    friend_id = db.Column(db.Integer, nullable=False, unique=False)
+    def __repr__(self):
+        return f"Friend('{self.user_id}', '{self.friend_id}')"
+    def __str__(self):
+        return str(self.friend_id)
+
 
 @app.route('/')
 def hello_world():
@@ -66,7 +76,7 @@ def signup():
 @app.route('/addtime', methods = ['POST'])
 def addtime():
     data = request.json
-    user_id = data['user_id']
+    user_id = int(data['user_id'])
     #time is stored in the database in minutes
     start = int(data['start_h'])*60+int(data['start_m'])
     end = int(data['end_h'])*60+int(data['end_m'])
@@ -91,7 +101,7 @@ def addtime():
 @app.route('/gettime', methods = ['POST'])
 def gettime():
     data = request.json
-    user_id = data['user_id']
+    user_id = int(data['user_id'])
     
     #formats user's schedule into a length 7 list of lists
     #ith list is the user's sorted list of busy time intervals on the ith day
@@ -106,6 +116,31 @@ def gettime():
             jsonstr = jsonstr[:-1]
         jsonstr += '],'
     jsonstr = jsonstr[:-1] + ']}'
+    return jsonstr, 200
+
+@app.route('/addfriend', methods = ['POST'])
+def addfriend():
+    data = request.json
+    user_id = int(data['user_id'])
+    friend_id = int(data['friend_id'])
+    friend = Friend(user_id=user_id, friend_id=friend_id)
+    db.session.add(friend)
+    friend = Friend(user_id=friend_id, friend_id=user_id)
+    db.session.add(friend)
+    db.session.commit()
+    return 'friend added', 201
+
+@app.route('/getfriends', methods = ['POST'])
+def getfriends():
+    data = request.json
+    user_id = int(data['user_id'])
+    jsonstr = '{['
+    fquery=Friend.query.filter(Friend.user_id == user_id).all()
+    for i in fquery:
+        jsonstr += str(i) + ','
+    if (len(fquery) > 0):
+        jsonstr = jsonstr[:-1]
+    jsonstr += ']}'
     return jsonstr, 200
 
 if __name__ == '__main__':

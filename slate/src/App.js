@@ -11,7 +11,6 @@ function App() {
       <Schedule />
       
     </div>
-    
   );
 }
 

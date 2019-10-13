@@ -41,6 +41,7 @@ class Login extends React.Component {
                     <br />
                     <input type="submit" value="Submit" />
                 </form>
+                <p>New here? <a>Signup</a></p>
             </div>
         )
     }

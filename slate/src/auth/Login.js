@@ -1,4 +1,7 @@
 import React from 'react';
+import {NavLink, Route, Switch} from 'react-router-dom';
+import Schedule from "../Schedule";
+import Signup from "./Signup";
 
 class Login extends React.Component {
     constructor() {
@@ -41,7 +44,7 @@ class Login extends React.Component {
                     <br />
                     <input type="submit" value="Submit" />
                 </form>
-                <p>New here? <a>Signup</a></p>
+                <p>New here? <a href = "/signup">Signup</a></p>
             </div>
         )
     }

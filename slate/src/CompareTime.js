@@ -1,3 +1,8 @@
 import React from 'react';
 
-class comparetime extends React.Component()
+class comparetime extends React.Component(){
+    Render(){
+
+    }
+
+}

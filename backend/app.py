@@ -210,6 +210,9 @@ def comparetime():
                     last=i
                     continue;
                 start = i
+                last=i
+            elif last != i-10:
+                continue
             else:
                 jsonstr =jsonstr + f"{{'start':'{start}', 'end':'{i}', 'day':'{day}'}}"
         if (day <7 ):
@@ -218,13 +221,6 @@ def comparetime():
             jsonstr=jsonstr+"]"
     jsonstr=jsonstr+"}"
     return jsonstr
-
-
-
-
-
-
-
 if __name__ == '__main__':
     app.run()
 

@@ -16,7 +16,7 @@ function AuthElements(props){
     if(isAuthenticated){
         return (
             <Nav className="ml-auto">
-                <Nav.Link onClick={AppNavbar.onLogout}>Logout</Nav.Link>
+                <Nav.Link onClick={OldNavbar.onLogout}>Logout</Nav.Link>
             </Nav>
         )
     }else{
@@ -62,7 +62,7 @@ const NavBar = () => {
     );
  }
 
-class AppNavbar extends React.Component {
+class OldNavbar extends React.Component {
 
     onLogout() {
         AuthService.logout();
@@ -94,4 +94,4 @@ class AppNavbar extends React.Component {
     }
 }
 
-export default AppNavbar;
+export default OldNavbar;

@@ -9,6 +9,7 @@ db = SQLAlchemy(app)
 
 daysinweek = {'Monday':1, 'Tuesday':2, 'Wednesday':3, 'Thursday':4, 'Friday':5, 'Saturday':6, 'Sunday':7}
 
+
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(20), nullable=False, unique=True)
@@ -39,6 +40,7 @@ class Friend(db.Model):
         return f"Friend('{self.user_id}', '{self.friend_id}')"
     def __str__(self):
         return str(self.friend_id)
+
 
 
 @app.route('/')
@@ -167,6 +169,60 @@ def signup():
     db.session.add(user)
     db.session.commit()
     return "congratulations, you have successfully signed up", 201
+
+@app.route('/comparetime',methods = ['POST'])
+def comparetime():
+    data=request.json
+    user_id=data["user_id"]
+    friend_id=data["friend_id"]
+    jsonstr="{"
+    for day in range (1, 8):
+        jsonstr=jsonstr+"["
+        minetime=Time.query.filter(Time.user_id == user_id,Time.day == day).all()
+        urtime = Time.query.filter(Time.user_id == friend_id, Time.day == day).all()
+        minetime.sort()
+        urtime.sort()
+        start=0
+        Valid=[];
+        for i in range (0, 1450,10):
+            Valid.append(i);
+        for timeblock in minetime:
+            for i in range(timeblock.start , timeblock.end):
+                Valid.remove(i)
+        for timeblock in urtime:
+            for i in range(timeblock.start, timeblock.end):
+                Valid.remove(i)
+        if (len(Valid)==0):
+            if(day<7):
+                jsonstr=jsonstr + "],"
+            else:
+                jsonstr=jsonstr +"]"
+
+            continue;
+        start=Valid[0]
+        last=Valid[0]
+        for i in range (start+10, 1450, 10):
+            if(Valid.contains(i)):
+                if((i==1440) and (last == i - 10)):
+                    jsonstr = jsonstr + f"{{'start':'{start}', 'end':'{i}', 'day':'{day}'}}"
+
+                if (last==i-10):
+                    last=i
+                    continue;
+                start = i
+            else:
+                jsonstr =jsonstr + f"{{'start':'{start}', 'end':'{i}', 'day':'{day}'}}"
+        if (day <7 ):
+            jsonstr=jsonstr+"],"
+        else:
+            jsonstr=jsonstr+"]"
+    jsonstr=jsonstr+"}"
+    return jsonstr
+
+
+
+
+
 
 
 if __name__ == '__main__':

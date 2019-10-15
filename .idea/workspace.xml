@@ -2,8 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c75e57da-aa0b-48a7-9f3c-50f799041be3" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/slate/src/Splash.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/slate/src/splashStyles.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/slate/src/splash_background.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/slate/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/slate/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/slate/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/slate/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/slate/src/Navbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/slate/src/Navbar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/slate/src/routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/slate/src/routes.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -71,12 +77,18 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1SD43XAKbDPNJDZv7iu9b99EZAL" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="DatabaseDriversLRU" value="cassandra" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/backend" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/splash_background.jpg" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
@@ -96,10 +108,21 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
-    <configuration name="Schedule.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="Schedule.js" working-dir="$PROJECT_DIR$/slate/src">
+  <component name="RunManager" selected="npm.start">
+    <configuration name="Schedule.js" type="NodeJSConfigurationType" temporary="true" path-to-node="$PROJECT_DIR$/slate/package.json" nameIsGenerated="true" path-to-js-file="Schedule.js" working-dir="$PROJECT_DIR$/slate/src">
       <method v="2" />
     </configuration>
+    <configuration name="start" type="js.build_tools.npm" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/slate/package.json" />
+      <command value="start" />
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Node.js.Schedule.js" />
+      <item itemvalue="npm.start" />
+    </list>
   </component>
   <component name="ServiceViewManager">
     <option name="allServicesViewState">
@@ -142,6 +165,7 @@
       <option name="presentableId" value="Default" />
       <updated>1571084634225</updated>
       <workItem from="1571084638357" duration="5327000" />
+      <workItem from="1571116576906" duration="921000" />
     </task>
     <servers />
   </component>
@@ -153,10 +177,15 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
 </project>

@@ -5,6 +5,7 @@ import Signup from './auth/Signup';
 import Schedule from './Schedule.js';
 import Navbar from './Navbar.js';
 import Settings from './Settings.js';
+import Splash from './Splash.js';
 
 class Routes extends React.Component {
     render(){
@@ -17,6 +18,7 @@ class Routes extends React.Component {
                         <Route exact path = "/signup" component={Signup} />
                         <Route exact path = "/login" component={Login} />
                         <Route exact path = "/settings" component={Settings}/>
+                        <Route exact path = "/splash" component={Splash}/>
                     </Switch>
                 </div>
             </BrowserRouter>

@@ -1,12 +1,13 @@
 from flask import *
 from flask_sqlalchemy import SQLAlchemy
 from flask_restplus import Api
+from flask_login import LoginManager
 import hashlib
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db'
 db = SQLAlchemy(app)
-
+login_manager = LoginManager()
 daysinweek = {'Monday':1, 'Tuesday':2, 'Wednesday':3, 'Thursday':4, 'Friday':5, 'Saturday':6, 'Sunday':7}
 
 
@@ -172,7 +173,7 @@ def signup():
 
 @app.route('/comparetime',methods = ['POST'])
 def comparetime():
-    data=request.json
+    data=request.json #incomming from user
     user_id=data["user_id"]
     friend_id=data["friend_id"]
     jsonstr="{"

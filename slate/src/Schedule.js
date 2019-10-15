@@ -59,6 +59,7 @@ class Schedule extends React.Component {
     }
 
     render(){
+
         var schedule = [], cols = 145;
         var days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
         for (var i = 0;i<145;i++){
@@ -106,6 +107,7 @@ class Schedule extends React.Component {
         }
         return(
             <div>
+                <br/><br/><br/><br/>
                 <AddScheduleBlock action={this.handler}/>
                 <table>
                     {format}

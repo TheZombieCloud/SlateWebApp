@@ -40,7 +40,7 @@ class Signup extends React.Component {
                         <input id="password" type="password" value={this.state.password} onChange={this.handleChange} required />
                     </label>
                     <br />
-                    <input type="submit" value="Submit" />
+                     <input type="submit" value="Submit"  action="/signup" method="POST"/>
                 </form>
             </div>
         )

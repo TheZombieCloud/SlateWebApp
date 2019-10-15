@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c75e57da-aa0b-48a7-9f3c-50f799041be3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/slate/src/Settings.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/slate/src/Navbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/slate/src/Navbar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slate/src/routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/slate/src/routes.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -60,8 +58,14 @@
       <list>
         <option value="HTML File" />
         <option value="JavaScript File" />
+        <option value="CSS File" />
       </list>
     </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>theme</find>
+    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />

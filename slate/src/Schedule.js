@@ -50,7 +50,9 @@ class Schedule extends React.Component {
             var day = this.blocks[i].state.day;
             var temp = start.split(":");
             var time = Math.floor((parseInt(temp[0])*60+parseInt(temp[1]))/10);
-            timetable[time][day] = name + " - [" + start + "-" + end + "]";
+            if(start<=end) {
+                timetable[time][day] = name + " - [" + start + "-" + end + "]";
+            }
             for (var c = 1;c<=duration/10;c++){
                 timetable[time+c][day] = 1;
             }

@@ -38,7 +38,8 @@ class Schedule extends React.Component {
 
     static addScheduleBlock(block){
         //Retrieves schedule blocks from Database and then adds new block
-        this.blocks.push(block);
+        if(block.state.start<=block.state.end)
+            this.blocks.push(block);
     }
 
     static addTimeTable(timetable){
@@ -50,9 +51,7 @@ class Schedule extends React.Component {
             var day = this.blocks[i].state.day;
             var temp = start.split(":");
             var time = Math.floor((parseInt(temp[0])*60+parseInt(temp[1]))/10);
-            if(start<=end) {
-                timetable[time][day] = name + " - [" + start + "-" + end + "]";
-            }
+            timetable[time][day] = name + " - [" + start + "-" + end + "]";
             for (var c = 1;c<=duration/10;c++){
                 timetable[time+c][day] = 1;
             }

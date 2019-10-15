@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom';
 class AddScheduleBlock extends React.Component {
 
     constructor(props){
+
         super(props);
         this.state = {name: "", start: "", end: "", day: ""};
         this.changeName = this.changeName.bind(this);

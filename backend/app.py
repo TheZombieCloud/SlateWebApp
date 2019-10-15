@@ -183,9 +183,9 @@ def comparetime():
         minetime.sort()
         urtime.sort()
         start=0
-        Valid=[];
+        Valid=[]
         for i in range (0, 1450,10):
-            Valid.append(i);
+            Valid.append(i)
         for timeblock in minetime:
             for i in range(timeblock.start , timeblock.end):
                 Valid.remove(i)
@@ -198,7 +198,7 @@ def comparetime():
             else:
                 jsonstr=jsonstr +"]"
 
-            continue;
+            continue
         start=Valid[0]
         last=Valid[0]
         for i in range (start+10, 1450, 10):
@@ -208,8 +208,11 @@ def comparetime():
 
                 if (last==i-10):
                     last=i
-                    continue;
+                    continue
                 start = i
+                last=i
+            elif last != i-10:
+                continue
             else:
                 jsonstr =jsonstr + f"{{'start':'{start}', 'end':'{i}', 'day':'{day}'}}"
         if (day <7 ):
@@ -217,14 +220,7 @@ def comparetime():
         else:
             jsonstr=jsonstr+"]"
     jsonstr=jsonstr+"}"
-    return jsonstr
-
-
-
-
-
-
-
+    return jsonstr,200
 if __name__ == '__main__':
     app.run()
 

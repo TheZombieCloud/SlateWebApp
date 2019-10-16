@@ -62,7 +62,6 @@ const Appbar = () => {
                 <Button><NavLink className = "inactive" activeClassName = "active" to = "/">Home</NavLink></Button>
                 <Button><NavLink className = "inactive" activeClassName = "active" to = "/signup">Signup</NavLink></Button>
                 <Button><NavLink className = "inactive" activeClassName = "active" to = "/login">Login</NavLink></Button>
-                <Button><NavLink className = "inactive" activeClassName = "active" to = "/settings">Settings</NavLink></Button>
                 <Button><NavLink className = "inactive" activeClassName = "active" to = "/splash">Splash</NavLink></Button>
                 <Button><NavLink className = "inactive" activeClassName = "active" to = "/pp">Profile/Feed</NavLink></Button>
             </Toolbar>

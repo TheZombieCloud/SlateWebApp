@@ -42,7 +42,7 @@ h1 {
     font-family: Avenir;
 }
 
-input {
+.input {
     border: solid #707070 1px;
     border-radius: 0.2rem;
     padding: 1rem;

@@ -1,3 +1,4 @@
+/*
 import * as React from "react";
 import { motion, Variants } from "framer-motion";
 import "./AnimatedLoginSignup.css";
@@ -102,3 +103,5 @@ class LoginSignup extends React.Component {
 }
 
 export default LoginSignup;
+
+ */

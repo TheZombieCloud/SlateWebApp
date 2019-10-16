@@ -60,11 +60,11 @@ def login():
         return "login successful", 200
     
 
-@app.route('/signup', methods = ['GET','POST',"OPTION"])
+@app.route('/signup', methods = ['GET','POST',"OPTIONS"])
 #Get returns the HTML, Post return what the code below does
 def signup():
     if request.method == 'POST':
-        print(NOO)
+        print("NOO")
         data = request.json
         username = data['username']
         email = data['email']
@@ -80,6 +80,7 @@ def signup():
         db.session.commit()
         return 'signup successful', 201
     print("Either Get or Option")
+    return 'signup successful', 201
     #else if the method is GET
 
 

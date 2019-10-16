@@ -28,7 +28,14 @@ class Schedule extends React.Component {
     }
 
     handler(name, start, end, day){
-        this.state.name = name;
+        //this.state.name = name;
+        var arr = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+        for (var i = 0;i<7;i++){
+            if (arr[i]==day){
+                day = i;
+                break;
+            }
+        }
         var start2 = start.split(":");
         var end2 = end.split(":");
         var duration = (parseInt(end2[0])-parseInt(start2[0]))*60+parseInt(end2[1])-parseInt(start2[1]);

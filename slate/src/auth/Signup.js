@@ -40,7 +40,7 @@ class Signup extends React.Component {
                         <input id="password" type="password" value={this.state.password} onChange={this.handleChange} required />
                     </label>
                     <br />
-                     <input type="submit" value="Submit"  action="$curl http://localhost:3000/signup" method="POST"/>
+                     <input type="submit" value="Submit"  action="{http://127.0.0.1:5000/signup}" method="POST"/>
                 </form>
             </div>
         )

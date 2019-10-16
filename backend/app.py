@@ -1,13 +1,12 @@
 from flask import *
 from flask_sqlalchemy import SQLAlchemy
 from flask_restplus import Api
-from flask_login import LoginManager
 import hashlib
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db'
+#Before initial, set the database URI to our database.
 db = SQLAlchemy(app)
-login_manager = LoginManager()
 daysinweek = {'Monday':1, 'Tuesday':2, 'Wednesday':3, 'Thursday':4, 'Friday':5, 'Saturday':6, 'Sunday':7}
 
 
@@ -48,34 +47,39 @@ class Friend(db.Model):
 def hello_world():
     return 'Hello World!'
 
-@app.route('/login', methods = ['POST'])
+@app.route('/login', methods = ['GET','POST'])
 def login():
-    data = request.json
-    email = data['email']
-    password = hashlib.sha256(data['password'].encode('ascii')).hexdigest()
-    try:
-        auth_results = User.query.filter(User.email == email, User.password == password).one()
-    except:
-        return "authentication failed", 401
-    return "login successful", 200
+    if (request.method=='POST'):
+        data = request.json
+        email = data['email']
+        password = hashlib.sha256(data['password'].encode('ascii')).hexdigest()
+        try:
+            auth_results = User.query.filter(User.email == email, User.password == password).one()
+        except:
+            return "authentication failed", 401
+        return "login successful", 200
     
 
-@app.route('/signup', methods = ['POST'])
+@app.route('/signup', methods = ['GET','POST'])
+#Get returns the HTML, Post return what the code below does
 def signup():
-    data = request.json
-    username = data['username']
-    email = data['email']
-    password = data['password']
-    #checks if email or username already exists
-    email_query = User.query.filter(User.email == email).all()
-    uname_query = User.query.filter(User.username == username).all()
-    if (len(email_query) > 0 or len(uname_query) > 0):
-        return 'username or email already exists', 409 
-    
-    user = User(username=username, email=email, password=hashlib.sha256(password.encode('ascii')).hexdigest())
-    db.session.add(user)
-    db.session.commit()
-    return 'signup successful', 201
+    if request.method == 'POST':
+        data = request.json
+        username = data['username']
+        email = data['email']
+        password = data['password']
+        #checks if email or username already exists
+        email_query = User.query.filter(User.email == email).all()
+        uname_query = User.query.filter(User.username == username).all()
+        if (len(email_query) > 0 or len(uname_query) > 0):
+            return 'username or email already exists', 409
+
+        user = User(username=username, email=email, password=hashlib.sha256(password.encode('ascii')).hexdigest())
+        db.session.add(user)
+        db.session.commit()
+        return 'signup successful', 201
+    #else if the method is GET
+
 
 @app.route('/addtime', methods = ['POST'])
 def addtime():
@@ -146,30 +150,6 @@ def getfriends():
         jsonstr = jsonstr[:-1]
     jsonstr += ']}'
     return jsonstr, 200
-
-@app.route('/login', methods = ['POST'])
-def login():
-    data = request.json
-    email = data['email']
-    password = hashlib.sha256(data['password'].encode('ascii')).hexdigest()
-    try:
-        auth_results = User.query.filter(User.email == email, User.password == password).one()
-    except:
-        return "authentication failed", 401
-
-    return "login successful", 200
-
-
-@app.route('/signup', methods = ['POST'])
-def signup():
-    data = request.json
-    username = data['username']
-    email = data['email']
-    password = data['password']
-    user = User(username=username, email=email, password=hashlib.sha256(password.encode('ascii')).hexdigest())
-    db.session.add(user)
-    db.session.commit()
-    return "congratulations, you have successfully signed up", 201
 
 @app.route('/comparetime',methods = ['POST'])
 def comparetime():

@@ -39,7 +39,7 @@ const SlateX = (props) => {
             animate={active? "active" : "disabled"}
             onClick={() => setActive(!active)}
         >
-            {["Click this slate if ur mum gay.", "Ur granny a tranny.", "Ur sister a mister.", "This is Requeim."].map(value => (
+            {["4.", "5.", "6.", "This is Requeim."].map(value => (
                 <div className="stickydiv">
                     <motion.div
                         key={value}
@@ -83,7 +83,7 @@ const SlateY = (props) => {
             onHoverStart={() => setActive(true)}
             onClick={() => setActive(!active)}
         >
-            {["Ur mum not gay.", "Ur granny not a tranny.", "Ur sister not a mister.", "This is still Requeim."].map(value => (
+            {["One", "Two", "Three", "This is Requeim."].map(value => (
                 <div className="stickydiv">
                     <motion.div
                         key={value}
@@ -104,23 +104,23 @@ const Splash = () => {
             <Redirect/>
             <div>
                 <div class="slideCenter">
-                    You are cordially invited to fuck my ass.
+                    You are cordially invited to collaborate.
                 </div>
                 <div className="stickydiv">
                     <SlateX/>
                 </div>
                 <div class="slideLeft" >
-                    {"   The nazis were superheros."}
+                    {"   Cows are superheros."}
                 </div>
             </div>
             <div className="stickydiv">
                 <SlateY/>
             </div>
             <div className="slideRight">
-                Sign up for grindr now and git a dick up ur ass.
+                Sign up for github now.
             </div>
             <div className="slideCenter">
-                Go commit bahen.
+                Go commit some changes.
             </div>
         </div>
     );

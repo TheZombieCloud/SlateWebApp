@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import Login from './auth/Login'
+import Login from './auth/Login';
 import Signup from './auth/Signup';
 import LoginSignup from './auth/LoginSignup.js'
 import Schedule from './Schedule.js';

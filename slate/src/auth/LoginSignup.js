@@ -1,6 +1,6 @@
 import * as React from "react";
 import { motion, Variants } from "framer-motion";
-import "./LoginSignup.css";
+import "./AnimatedLoginSignup.css";
 
 const vw = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
 const vh = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);

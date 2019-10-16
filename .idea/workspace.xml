@@ -2,9 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7453e1f1-0978-402c-b39c-b7c837140944" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/slate/src/auth/AnimatedLoginSignup.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/slate/src/auth/OldLogin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/slate/src/auth/OldSignup.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/slate/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/slate/src/App.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slate/src/Schedulec.css" beforeDir="false" afterPath="$PROJECT_DIR$/slate/src/Schedulec.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/slate/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/slate/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/slate/src/auth/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/slate/src/auth/Login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/slate/src/auth/LoginSignup.css" beforeDir="false" afterPath="$PROJECT_DIR$/slate/src/auth/LoginSignup.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/slate/src/auth/LoginSignup.js" beforeDir="false" afterPath="$PROJECT_DIR$/slate/src/auth/LoginSignup.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/slate/src/auth/Signup.js" beforeDir="false" afterPath="$PROJECT_DIR$/slate/src/auth/Signup.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/slate/src/routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/slate/src/routes.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -80,7 +88,7 @@
       <option name="presentableId" value="Default" />
       <updated>1571193445076</updated>
       <workItem from="1571193460255" duration="3782000" />
-      <workItem from="1571239082012" duration="2055000" />
+      <workItem from="1571239082012" duration="5996000" />
     </task>
     <servers />
   </component>

@@ -1,5 +1,6 @@
 body {
-  background-image: url("background.jpg");
+  background-image: url("slate2.jpg");
+  background-size: 100vw;
   overflow: hidden;
   width: 100%;
   height: 100%;

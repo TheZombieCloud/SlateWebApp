@@ -14,7 +14,8 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: gray;
+    background-image: url("slate2.jpg");
+    background-size: 100vw;
     overflow: hidden;
 }
 
@@ -45,7 +46,8 @@ body {
     width: 50vh;
     height: 50vh;
     padding: 10px;
-    background: gray;
+    background-image: url("slate2.jpg");
+    background-size: 100vw;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -71,7 +73,8 @@ body {
     top: 0;
     width: 10vw;
     height: 10vh;
-    background: gray;
+    background-image: url("slate2.jpg");
+    background-size: 100vw;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -113,7 +116,8 @@ h1 {
 
 .inputSubmitGray {
     padding:5px 15px;
-    background-color: gray;
+    background-image: url("slate2.jpg");
+    background-size: 100vw;
     cursor:pointer;
     border-radius: 0;
     font-weight: normal;

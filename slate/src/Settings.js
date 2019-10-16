@@ -1,4 +1,5 @@
 import React from 'react';
+import "./SettingsStyles.css";
 
 class Settings extends React.Component{
 
@@ -8,12 +9,12 @@ class Settings extends React.Component{
 
     render(){
         return(
-          <div>
-              <p>Update Profile Picture</p>
-              <p>Change Username</p>
-              <p>Change Password</p>
-              <p>Change Email</p>
-              <p>Change Schedule Preferences</p>
+          <div className="settingsBox">
+              <button className="settingButton">Update Profile Picture</button>
+              <button className="settingButton">Change Username</button>
+              <button className="settingButton">Change Password</button>
+              <button className="settingButton">Change Email</button>
+              <button className="settingButton">Change Schedule Preferences</button>
           </div>
         );
     }

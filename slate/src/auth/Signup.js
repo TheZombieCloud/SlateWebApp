@@ -75,7 +75,7 @@ class Signup extends React.Component {
                                 <input id="email" type="text" value={this.state.email} onChange={this.handleChange} required />
                             </label>
                             <br />
-                            <input className="orangeSubmit" type="submit" value="Signup" action="{http://127.0.0.1:5000/signup}" method="POST"/>
+                            <input className="inputSubmitOrange" type="submit" value="Signup" action="{http://127.0.0.1:5000/signup}" method="POST"/>
                         </form>
                     </div>
                 </div>

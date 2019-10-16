@@ -60,7 +60,7 @@ class Login extends React.Component {
                             <input id="password" type="password" value={this.state.password} onChange={this.handleChange} required />
                         </label>
                         <br />
-                        <input type="submit" value="Login"/>
+                        <input type="submit" value="Login" className="inputSubmitGray"/>
                     </form>
                 </div>
                     <a href = "/signup">

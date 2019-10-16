@@ -16,8 +16,11 @@ table, td, th {
     border-spacing: 3px;
 }
 
+.blocks {
+    white-space: nowrap;
+}
+
 td {
-    height: 1px;
     padding-right: 10px;
     padding-left: 10px;
     font-family: Avenir;
@@ -57,7 +60,8 @@ h1 {
 .button {
     width: 10vw;
     height: 5vh;
-    color: black;
+    background-color: orange;
+    border: solid black 1px;
 }
 
 .rdiv {

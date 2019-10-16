@@ -102,7 +102,7 @@ h1 {
     font-size: 3em;
 }
 
-input[type=submit] {
+.inputSubmitOrange {
     padding:5px 15px;
     background-color: orange;
     cursor:pointer;
@@ -111,10 +111,14 @@ input[type=submit] {
     font-size: smaller;
 }
 
-.orangeSubmit {
-    background-color: orange;
+.inputSubmitGray {
+    padding:5px 15px;
+    background-color: gray;
+    cursor:pointer;
+    border-radius: 0;
+    font-weight: normal;
+    font-size: smaller;
 }
-
 .username-font {
     font-weight: normal;
     font-size: smaller;

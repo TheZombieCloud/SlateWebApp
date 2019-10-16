@@ -1,0 +1,42 @@
+@font-face {
+    font-family: Avenir;
+    src: url(AvenirLTStd-Book.otf);
+}
+
+table {
+    margin-top: 2vh;
+    margin-left: 2vw;
+}
+
+table, td, th {
+    border-spacing: 3px;
+}
+
+td {
+    height: 1px;
+    padding-right: 10px;
+    padding-left: 10px;
+    font-family: Avenir;
+
+    font-size: 0.8rem;
+    font-weight: bold;
+    line-height: 1.4;
+    border-radius: 0.2rem;
+    transition: opacity 0.3s ease;
+}
+
+th {
+    border-top: thin dotted #ccc;
+    font-family: Avenir;
+}
+
+.days {
+    border-right: thin dotted #ccc;
+}
+
+.a {background-color: #FFA726;}
+.b {background-color: #9CCC65;}
+.c {background-color: #FF8A65;}
+.d {background-color: #B3E5FC;}
+.e {background-color: #81D4FA;}
+.f {background-color: #26C6DA;}

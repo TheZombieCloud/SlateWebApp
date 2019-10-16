@@ -1,6 +1,7 @@
 import React from 'react';
 import AddScheduleBlock from "./AddScheduleBlock";
 import ReactDOM from 'react-dom';
+import './Schedulec.css';
 
 class ScheduleBlock {
     constructor(name, duration, start, end, day) {
@@ -52,51 +53,70 @@ class Schedule extends React.Component {
             var temp = start.split(":");
             var time = Math.floor((parseInt(temp[0])*60+parseInt(temp[1]))/10);
             timetable[time][day] = name + " - [" + start + "-" + end + "]";
-            for (var c = 1;c<=duration/10;c++){
-                timetable[time+c][day] = 1;
+            for (var c = 0;c<=duration/10 - 1;c++) {
+                if (c==0) {
+                    timetable[time][day] = duration / 10;
+                }
+                else {
+                    timetable[time + c][day] = -1;
+                }
             }
         }
         return timetable;
     }
 
     render(){
-
         var schedule = [], cols = 145;
         var days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
         for (var i = 0;i<145;i++){
             schedule[i] = [];
         }
-        schedule[0][0] = (<td>
-            <h3>Time</h3>
-        </td>);
+        schedule[0][0] = (<td></td>);
         for (var i = 1;i<8;i++) {
-            schedule[0][i] = (<td>
+            schedule[0][i] = (<td class = "days">
                 <h3>{days[i - 1]}</h3>
             </td>);
         }
         for (var i = 1;i<145;i++){
-            if ((i-1)%6==0) {
-                schedule[i][0] = (<td>
-                    <h3>{(Math.floor(i/6)).toString() + ":00"}</h3>
-                </td>);
+            if (i==1){
+                schedule[i][0] = (<th rowspan = "6">
+                    <h3>{"12:00AM"}</h3>
+                </th>);
             }
-            else {
+            else if ((i-1)%6==0) {
+                if ((i - 1) / 6 >= 12) {
+                    if ((i-1) / 6 >= 13) {
+                        schedule[i][0] = (<th rowspan = "6">
+                            <h3>{(Math.floor(i / 6)-12).toString() + ":00PM"}</h3>
+                        </th>);
+                    }
+                    else {
+                        schedule[i][0] = (<th rowspan = "6">
+                            <h3>{(Math.floor(i / 6)).toString() + ":00PM"}</h3>
+                        </th>);
+                    }
+                }
+                else {
+                    schedule[i][0] = (<th rowspan = "6">
+                        <h3>{(Math.floor(i / 6)).toString() + ":00AM"}</h3>
+                    </th>);
+                }
+            }
+            /*else {
                 schedule[i][0] = (<td>
                     <h3></h3>
                 </td>);
-            }
+            }*/
         }
         for (var i = 1;i<145;i++){
             for (var c = 1;c<8;c++){
-                if (this.state.timetable[i-1][c-1]!=0) {
-                    schedule[i][c] = (<td bgcolor="green">
-                        <h3>{this.state.timetable[i - 1][c - 1]}</h3>
-                    </td>);
+                if (this.state.timetable[i-1][c-1]!=0&&this.state.timetable[i-1][c-1]!=-1) {
+                    var random = Math.floor(Math.random()*6);
+                    var palette = ["a", "b", "c", "d", "e", "f"];
+                    schedule[i][c] = (<td rowspan = {this.state.timetable[i-1][c-1]} class = {palette[random]}></td>);
                 }
-                else {
-                    schedule[i][c] = (<td>
-                        <h3>{this.state.timetable[i - 1][c - 1]}</h3>
-                    </td>);
+                else if (this.state.timetable[i-1][c-1]!=-1){
+                    schedule[i][c] = (<td></td>);
                 }
             }
         }
@@ -106,13 +126,91 @@ class Schedule extends React.Component {
                 {schedule[i]}
             </tr>);
         }
+        /*var schedule = [];
+        var days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+        for (var i = 0;i<47;i++){
+            schedule[i] = [];
+        }
+        schedule[0][0] = (<td></td>);
+        for (var i = 1;i<8;i++) {
+            schedule[0][i] = (<td>
+                <h3>{days[i - 1]}</h3>
+            </td>);
+        }
+        for (var i = 1;i<47;i++){
+            if (i==1){
+                schedule[i][0] = (<td>
+                    <h3>12:00 AM</h3>
+                </td>);
+            }
+            else if ((i-1)%2==0) {
+                if ((i-1)/2 >= 12) {
+                    schedule[i][0] = (<td>
+                        <h3>{(Math.floor(i / 2)).toString() + ":00 PM"}</h3>
+                    </td>);
+                }
+                else {
+                    schedule[i][0] = (<td>
+                        <h3>{(Math.floor(i / 2)).toString() + ":00 AM"}</h3>
+                    </td>);
+                }
+            }
+            else {
+                if (i==2){
+                    schedule[i][0] = (<td>
+                        <h3>12:30 AM</h3>
+                    </td>);
+                }
+                else if (i/2 >= 12) {
+                    schedule[i][0] = (<td>
+                        <h3>{(Math.floor((i / 2)-1)).toString() + ":30 PM"}</h3>
+                    </td>);
+                }
+                else {
+                    schedule[i][0] = (<td>
+                        <h3>{(Math.floor((i / 2)-1)).toString() + ":30 AM"}</h3>
+                    </td>);
+                }
+            }
+        }
+        for (var k = 1;k<47;k++) {
+            for (var c = 1; c<8;c++) {
+                var temp = [];
+                for (var i = 0; i < 3; i++) {
+                    if (this.state.timetable[(k-1)*3+i][c-1] != 0){
+                        temp[i] = (<tr><td bgcolor = "green"></td></tr>)
+                    }
+                    else {
+                        temp[i] = (<tr><td></td></tr>);
+                    }
+                }
+            }
+            schedule[k]
+            for (var i = 1; i < 145; i++) {
+                for (var c = 1; c < 8; c++) {
+                    if (this.state.timetable[i - 1][c - 1] != 0) {
+                        schedule[i][c] = (<td bgcolor="green"></td>);
+                    } else {
+                        schedule[i][c] = (<td></td>);
+                    }
+                }
+            }
+        }
+        var format = [47];
+        for (var i = 0;i<47;i++){
+            format[i] = (<tr class="tr">
+                {schedule[i]}
+            </tr>);
+        }*/
         return(
             <div>
                 <br/><br/><br/><br/>
                 <AddScheduleBlock action={this.handler}/>
-                <table>
-                    {format}
-                </table>
+                <div>
+                    <table>
+                        {format}
+                    </table>
+                </div>
             </div>
         );
     }

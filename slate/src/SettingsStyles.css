@@ -1,0 +1,29 @@
+.settingsBox {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+}
+
+.settingButton:hover {
+    background-color: darkorange;
+}
+
+.settingButton {
+    position: static;
+    padding: 16px 32px;
+    margin: 4px 2px;
+    text-align: center;
+    font-weight: normal;
+    font-size: larger;
+    cursor: pointer;
+    background-color: orange;
+    width: 20vw;
+
+}

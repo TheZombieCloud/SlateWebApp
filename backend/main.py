@@ -46,7 +46,7 @@ class Friend(db.Model):
 
 @app.route('/')
 def hello_world():
-    return 'Hello World!'
+    return 'Hello World!',4
 
 @app.route('/login', methods = ['GET','POST'])
 def login():
@@ -67,7 +67,7 @@ def signup():
 
     print("NOO")
     data = request.json
-    print(request.content_length)
+    print(request)
     if False:
         username = data['username']
         email = data['email']
@@ -81,6 +81,7 @@ def signup():
         user = User(username=username, email=email, password=hashlib.sha256(password.encode('ascii')).hexdigest())
         db.session.add(user)
         db.session.commit()
+    db.session.commit();
     return 'signup successful', 201
    # print("Either Get or Option")
    # return 'signup successful', 201

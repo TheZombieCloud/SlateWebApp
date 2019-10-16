@@ -3,9 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="7453e1f1-0978-402c-b39c-b7c837140944" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slate/src/auth/Signup.js" beforeDir="false" afterPath="$PROJECT_DIR$/slate/src/auth/Signup.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/slate/src/Schedule.js" beforeDir="false" afterPath="$PROJECT_DIR$/slate/src/Schedule.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/slate/src/Schedulec.css" beforeDir="false" afterPath="$PROJECT_DIR$/slate/src/Schedulec.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,11 +48,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/slate/src/Schedule.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="280">
-              <caret line="209" column="20" selection-start-line="209" selection-start-column="20" selection-end-line="209" selection-end-column="20" />
+            <state relative-caret-position="-9">
+              <caret line="192" column="28" lean-forward="true" selection-start-line="192" selection-start-column="28" selection-end-line="192" selection-end-column="28" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -61,23 +60,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/slate/src/Schedulec.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="73">
-              <caret line="21" column="22" lean-forward="true" selection-start-line="21" selection-start-column="22" selection-end-line="21" selection-end-column="22" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/slate/src/routes.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret lean-forward="true" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="255">
+              <caret line="19" column="24" lean-forward="true" selection-start-line="19" selection-start-column="24" selection-end-line="19" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -118,8 +105,8 @@
         <option value="$PROJECT_DIR$/slate/src/Navbarc.css" />
         <option value="$PROJECT_DIR$/slate/src/Navbar.js" />
         <option value="$PROJECT_DIR$/slate/src/splashStyles.css" />
-        <option value="$PROJECT_DIR$/slate/src/Schedulec.css" />
         <option value="$PROJECT_DIR$/slate/src/Schedule.js" />
+        <option value="$PROJECT_DIR$/slate/src/Schedulec.css" />
       </list>
     </option>
   </component>
@@ -207,7 +194,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="49655000" />
+    <option name="totallyTimeSpent" value="50985000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
@@ -235,7 +222,7 @@
       <window_info anchor="right" id="Database" order="3" />
     </layout>
     <layout-to-restore>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.27125505" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.27044535" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="TypeScript" order="0" />
@@ -277,22 +264,12 @@
     </option>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/slate/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="13" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/slate/package.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-80">
           <caret line="4" column="19" selection-start-line="4" selection-start-column="19" selection-end-line="4" selection-end-column="19" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/.gitignore">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/slate/src/Login.js" />
     <entry file="file://$PROJECT_DIR$/slate/src/logo.svg">
@@ -412,16 +389,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/slate/src/routes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret lean-forward="true" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/slate/src/Splash.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="646">
@@ -466,20 +433,43 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/slate/src/Schedulec.css">
+    <entry file="file://$PROJECT_DIR$/slate/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="73">
-          <caret line="21" column="22" lean-forward="true" selection-start-line="21" selection-start-column="22" selection-end-line="21" selection-end-column="22" />
+        <state relative-caret-position="51">
+          <caret line="3" column="13" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/.gitignore">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/slate/src/routes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret lean-forward="true" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/slate/src/Schedule.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="209" column="20" selection-start-line="209" selection-start-column="20" selection-end-line="209" selection-end-column="20" />
+        <state relative-caret-position="-9">
+          <caret line="192" column="28" lean-forward="true" selection-start-line="192" selection-start-column="28" selection-end-line="192" selection-end-column="28" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/slate/src/Schedulec.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="19" column="24" lean-forward="true" selection-start-line="19" selection-start-column="24" selection-end-line="19" selection-end-column="24" />
         </state>
       </provider>
     </entry>

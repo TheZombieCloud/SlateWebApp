@@ -206,7 +206,7 @@ class Schedule extends React.Component {
             <div>
                 <br/><br/><br/><br/>
                 <AddScheduleBlock action={this.handler}/>
-                <div>
+                <div class = "rdiv">
                     <table>
                         {format}
                     </table>

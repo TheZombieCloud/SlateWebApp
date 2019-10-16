@@ -4,8 +4,9 @@
 }
 
 table {
-    margin-top: 2vh;
+    margin-top: 3vh;
     margin-left: 2vw;
+    margin-bottom: 3vh;
 }
 
 table, td, th {
@@ -17,8 +18,7 @@ td {
     padding-right: 10px;
     padding-left: 10px;
     font-family: Avenir;
-
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     font-weight: bold;
     line-height: 1.4;
     border-radius: 0.2rem;
@@ -27,11 +27,23 @@ td {
 
 th {
     border-top: thin dotted #ccc;
+    font-size: 0.9rem;
     font-family: Avenir;
 }
 
 .days {
     border-right: thin dotted #ccc;
+}
+
+.rdiv {
+    border-radius: 0.5rem;
+    border: solid black;
+    border-width: 1px;
+    width: 60vw;
+    margin-left: 4vw;
+    margin-bottom: 4vw;
+    margin-top: 4vw;
+    box-shadow: 5px 10px 10px darkgrey;
 }
 
 .a {background-color: #FFA726;}

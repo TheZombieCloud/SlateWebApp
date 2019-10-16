@@ -2,6 +2,8 @@ import * as React from "react";
 import { motion, Variants } from "framer-motion";
 import "./LoginSignup.css";
 
+
+
 const vw = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
 const vh = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
 
@@ -24,7 +26,8 @@ class Signup extends React.Component {
             username: '',
             password: '',
             email: '',
-            signup: false
+            signup: false,
+            debug: 'debug',
         };
 
         this.handleChange = this.handleChange.bind(this);
@@ -37,15 +40,16 @@ class Signup extends React.Component {
     }
 
     handleSubmit(event) {
-        var request = new XMLHttpRequest();
-        request.open("POST", 'http://127.0.0.1:5000/signup', true);
-        request.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
-        request.send();
-        var ans=request.response();
-        alert(ans);
+        //this.state.debug=this.state.username;
 
-        //request.send(this.state);
+        /*var request = new XMLHttpRequest();
+        request.open(['POST'], 'http://127.0.0.1:5000/', true);
+        request.setRequestHeader('Usersignup','Content-Type : application/json; charset=UTF-8');
+        request.send(this.state);*/
         event.preventDefault();
+        this.state.debug=this.handleChange="1";
+        this.forceUpdate();
+
 
     }
 
@@ -53,11 +57,14 @@ class Signup extends React.Component {
         return(
             <div className="signupPage" animate={this.state.signup ? "signup" : "login"} variants={signupPage}>
                 <div className="signup-area">
+                    <h1> {this.state.debug} </h1>
+
                     <a href = "/Login">
-                        <div className="loginRedirect" onClick={() => this.setState({ signup: false })}>
-                            Login
+                    <div className="loginRedirect" onClick={() => this.setState({ signup: false})}>
+                           Login
                         </div>
                     </a>
+
                     <div id="login" className="signup-box">
                         <h1>S L A T E</h1>
                         <form id="form" onSubmit={this.handleSubmit} className="signup-box">
@@ -76,11 +83,15 @@ class Signup extends React.Component {
                                 <input id="email" type="text" value={this.state.email} onChange={this.handleChange} required />
                             </label>
                             <br />
-                            <input className="inputSubmitOrange" type="submit" value="Signup" action="{http://127.0.0.1:5000/signup}" method="POST"/>
+                            <input className="inputSubmitOrange" type="submit" value="Signup"/>
+
                         </form>
                     </div>
+
                 </div>
+
             </div>
+
         )
     }
 }

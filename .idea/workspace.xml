@@ -2,120 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7453e1f1-0978-402c-b39c-b7c837140944" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/slate/src/auth/LoginSignup.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/slate/src/auth/LoginSignup.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slate/node_modules/.bin/handlebars" beforeDir="false" afterPath="$PROJECT_DIR$/slate/node_modules/.bin/handlebars" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slate/node_modules/handlebars/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/slate/node_modules/handlebars/LICENSE" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slate/node_modules/handlebars/README.markdown" beforeDir="false" afterPath="$PROJECT_DIR$/slate/node_modules/handlebars/README.markdown" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slate/node_modules/handlebars/bin/handlebars" beforeDir="false" afterPath="$PROJECT_DIR$/slate/node_modules/handlebars/bin/handlebars" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slate/node_modules/handlebars/dist/amd/handlebars.js" beforeDir="false" afterPath="$PROJECT_DIR$/slate/node_modules/handlebars/dist/amd/handlebars.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slate/node_modules/handlebars/dist/amd/handlebars.runtime.js" beforeDir="false" afterPath="$PROJECT_DIR$/slate/node_modules/handlebars/dist/amd/handlebars.runtime.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slate/node_modules/handlebars/dist/amd/handlebars/base.js" beforeDir="false" afterPath="$PROJECT_DIR$/slate/node_modules/handlebars/dist/amd/handlebars/base.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slate/node_modules/handlebars/dist/amd/handlebars/compiler/ast.js" beforeDir="false" afterPath="$PROJECT_DIR$/slate/node_modules/handlebars/dist/amd/handlebars/compiler/ast.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slate/node_modules/handlebars/dist/amd/handlebars/compiler/base.js" beforeDir="false" afterPath="$PROJECT_DIR$/slate/node_modules/handlebars/dist/amd/handlebars/compiler/base.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slate/node_modules/handlebars/dist/amd/handlebars/compiler/code-gen.js" beforeDir="false" afterPath="$PROJECT_DIR$/slate/node_modules/handlebars/dist/amd/handlebars/compiler/code-gen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slate/node_modules/handlebars/dist/amd/handlebars/compiler/compiler.js" beforeDir="false" afterPath="$PROJECT_DIR$/slate/node_modules/handlebars/dist/amd/handlebars/compiler/compiler.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slate/node_modules/handlebars/dist/amd/handlebars/compiler/helpers.js" beforeDir="false" afterPath="$PROJECT_DIR$/slate/node_modules/handlebars/dist/amd/handlebars/compiler/helpers.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slate/node_modules/handlebars/dist/amd/handlebars/compiler/javascript-compiler.js" beforeDir="false" afterPath="$PROJECT_DIR$/slate/node_modules/handlebars/dist/amd/handlebars/compiler/javascript-compiler.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slate/node_modules/handlebars/dist/amd/handlebars/compiler/parser.js" beforeDir="false" afterPath="$PROJECT_DIR$/slate/node_modules/handlebars/dist/amd/handlebars/compiler/parser.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slate/node_modules/handlebars/dist/amd/handlebars/compiler/printer.js" beforeDir="false" afterPath="$PROJECT_DIR$/slate/node_modules/handlebars/dist/amd/handlebars/compiler/printer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slate/node_modules/handlebars/dist/amd/handlebars/compiler/visitor.js" beforeDir="false" afterPath="$PROJECT_DIR$/slate/node_modules/handlebars/dist/amd/handlebars/compiler/visitor.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slate/node_modules/handlebars/dist/amd/handlebars/compiler/whitespace-control.js" beforeDir="false" afterPath="$PROJECT_DIR$/slate/node_modules/handlebars/dist/amd/handlebars/compiler/whitespace-control.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slate/node_modules/handlebars/dist/amd/handlebars/decorators.js" beforeDir="false" afterPath="$PROJECT_DIR$/slate/node_modules/handlebars/dist/amd/handlebars/decorators.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slate/node_modules/handlebars/dist/amd/handlebars/decorators/inline.js" beforeDir="false" afterPath="$PROJECT_DIR$/slate/node_modules/handlebars/dist/amd/handlebars/decorators/inline.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slate/node_modules/handlebars/dist/amd/handlebars/exception.js" beforeDir="false" afterPath="$PROJECT_DIR$/slate/node_modules/handlebars/dist/amd/handlebars/exception.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slate/node_modules/handlebars/dist/amd/handlebars/helpers.js" beforeDir="false" afterPath="$PROJECT_DIR$/slate/node_modules/handlebars/dist/amd/handlebars/helpers.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slate/node_modules/handlebars/dist/amd/handlebars/helpers/block-helper-missing.js" beforeDir="false" afterPath="$PROJECT_DIR$/slate/node_modules/handlebars/dist/amd/handlebars/helpers/block-helper-missing.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slate/node_modules/handlebars/dist/amd/handlebars/helpers/each.js" beforeDir="false" afterPath="$PROJECT_DIR$/slate/node_modules/handlebars/dist/amd/handlebars/helpers/each.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slate/node_modules/handlebars/dist/amd/handlebars/helpers/helper-missing.js" beforeDir="false" afterPath="$PROJECT_DIR$/slate/node_modules/handlebars/dist/amd/handlebars/helpers/helper-missing.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slate/node_modules/handlebars/dist/amd/handlebars/helpers/if.js" beforeDir="false" afterPath="$PROJECT_DIR$/slate/node_modules/handlebars/dist/amd/handlebars/helpers/if.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slate/node_modules/handlebars/dist/amd/handlebars/helpers/log.js" beforeDir="false" afterPath="$PROJECT_DIR$/slate/node_modules/handlebars/dist/amd/handlebars/helpers/log.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slate/node_modules/handlebars/dist/amd/handlebars/helpers/lookup.js" beforeDir="false" afterPath="$PROJECT_DIR$/slate/node_modules/handlebars/dist/amd/handlebars/helpers/lookup.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slate/node_modules/handlebars/dist/amd/handlebars/helpers/with.js" beforeDir="false" afterPath="$PROJECT_DIR$/slate/node_modules/handlebars/dist/amd/handlebars/helpers/with.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slate/node_modules/handlebars/dist/amd/handlebars/logger.js" beforeDir="false" afterPath="$PROJECT_DIR$/slate/node_modules/handlebars/dist/amd/handlebars/logger.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slate/node_modules/handlebars/dist/amd/handlebars/no-conflict.js" beforeDir="false" afterPath="$PROJECT_DIR$/slate/node_modules/handlebars/dist/amd/handlebars/no-conflict.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slate/node_modules/handlebars/dist/amd/handlebars/runtime.js" beforeDir="false" afterPath="$PROJECT_DIR$/slate/node_modules/handlebars/dist/amd/handlebars/runtime.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slate/node_modules/handlebars/dist/amd/handlebars/safe-string.js" beforeDir="false" afterPath="$PROJECT_DIR$/slate/node_modules/handlebars/dist/amd/handlebars/safe-string.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slate/node_modules/handlebars/dist/amd/handlebars/utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/slate/node_modules/handlebars/dist/amd/handlebars/utils.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slate/node_modules/handlebars/dist/amd/precompiler.js" beforeDir="false" afterPath="$PROJECT_DIR$/slate/node_modules/handlebars/dist/amd/precompiler.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slate/node_modules/handlebars/dist/cjs/handlebars.js" beforeDir="false" afterPath="$PROJECT_DIR$/slate/node_modules/handlebars/dist/cjs/handlebars.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slate/node_modules/handlebars/dist/cjs/handlebars.runtime.js" beforeDir="false" afterPath="$PROJECT_DIR$/slate/node_modules/handlebars/dist/cjs/handlebars.runtime.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slate/node_modules/handlebars/dist/cjs/handlebars/base.js" beforeDir="false" afterPath="$PROJECT_DIR$/slate/node_modules/handlebars/dist/cjs/handlebars/base.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slate/node_modules/handlebars/dist/cjs/handlebars/compiler/ast.js" beforeDir="false" afterPath="$PROJECT_DIR$/slate/node_modules/handlebars/dist/cjs/handlebars/compiler/ast.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slate/node_modules/handlebars/dist/cjs/handlebars/compiler/base.js" beforeDir="false" afterPath="$PROJECT_DIR$/slate/node_modules/handlebars/dist/cjs/handlebars/compiler/base.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slate/node_modules/handlebars/dist/cjs/handlebars/compiler/code-gen.js" beforeDir="false" afterPath="$PROJECT_DIR$/slate/node_modules/handlebars/dist/cjs/handlebars/compiler/code-gen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slate/node_modules/handlebars/dist/cjs/handlebars/compiler/compiler.js" beforeDir="false" afterPath="$PROJECT_DIR$/slate/node_modules/handlebars/dist/cjs/handlebars/compiler/compiler.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slate/node_modules/handlebars/dist/cjs/handlebars/compiler/helpers.js" beforeDir="false" afterPath="$PROJECT_DIR$/slate/node_modules/handlebars/dist/cjs/handlebars/compiler/helpers.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slate/node_modules/handlebars/dist/cjs/handlebars/compiler/javascript-compiler.js" beforeDir="false" afterPath="$PROJECT_DIR$/slate/node_modules/handlebars/dist/cjs/handlebars/compiler/javascript-compiler.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slate/node_modules/handlebars/dist/cjs/handlebars/compiler/parser.js" beforeDir="false" afterPath="$PROJECT_DIR$/slate/node_modules/handlebars/dist/cjs/handlebars/compiler/parser.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slate/node_modules/handlebars/dist/cjs/handlebars/compiler/printer.js" beforeDir="false" afterPath="$PROJECT_DIR$/slate/node_modules/handlebars/dist/cjs/handlebars/compiler/printer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slate/node_modules/handlebars/dist/cjs/handlebars/compiler/visitor.js" beforeDir="false" afterPath="$PROJECT_DIR$/slate/node_modules/handlebars/dist/cjs/handlebars/compiler/visitor.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slate/node_modules/handlebars/dist/cjs/handlebars/compiler/whitespace-control.js" beforeDir="false" afterPath="$PROJECT_DIR$/slate/node_modules/handlebars/dist/cjs/handlebars/compiler/whitespace-control.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slate/node_modules/handlebars/dist/cjs/handlebars/decorators.js" beforeDir="false" afterPath="$PROJECT_DIR$/slate/node_modules/handlebars/dist/cjs/handlebars/decorators.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slate/node_modules/handlebars/dist/cjs/handlebars/decorators/inline.js" beforeDir="false" afterPath="$PROJECT_DIR$/slate/node_modules/handlebars/dist/cjs/handlebars/decorators/inline.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slate/node_modules/handlebars/dist/cjs/handlebars/exception.js" beforeDir="false" afterPath="$PROJECT_DIR$/slate/node_modules/handlebars/dist/cjs/handlebars/exception.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slate/node_modules/handlebars/dist/cjs/handlebars/helpers.js" beforeDir="false" afterPath="$PROJECT_DIR$/slate/node_modules/handlebars/dist/cjs/handlebars/helpers.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slate/node_modules/handlebars/dist/cjs/handlebars/helpers/block-helper-missing.js" beforeDir="false" afterPath="$PROJECT_DIR$/slate/node_modules/handlebars/dist/cjs/handlebars/helpers/block-helper-missing.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slate/node_modules/handlebars/dist/cjs/handlebars/helpers/each.js" beforeDir="false" afterPath="$PROJECT_DIR$/slate/node_modules/handlebars/dist/cjs/handlebars/helpers/each.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slate/node_modules/handlebars/dist/cjs/handlebars/helpers/helper-missing.js" beforeDir="false" afterPath="$PROJECT_DIR$/slate/node_modules/handlebars/dist/cjs/handlebars/helpers/helper-missing.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slate/node_modules/handlebars/dist/cjs/handlebars/helpers/if.js" beforeDir="false" afterPath="$PROJECT_DIR$/slate/node_modules/handlebars/dist/cjs/handlebars/helpers/if.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slate/node_modules/handlebars/dist/cjs/handlebars/helpers/log.js" beforeDir="false" afterPath="$PROJECT_DIR$/slate/node_modules/handlebars/dist/cjs/handlebars/helpers/log.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slate/node_modules/handlebars/dist/cjs/handlebars/helpers/lookup.js" beforeDir="false" afterPath="$PROJECT_DIR$/slate/node_modules/handlebars/dist/cjs/handlebars/helpers/lookup.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slate/node_modules/handlebars/dist/cjs/handlebars/helpers/with.js" beforeDir="false" afterPath="$PROJECT_DIR$/slate/node_modules/handlebars/dist/cjs/handlebars/helpers/with.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slate/node_modules/handlebars/dist/cjs/handlebars/logger.js" beforeDir="false" afterPath="$PROJECT_DIR$/slate/node_modules/handlebars/dist/cjs/handlebars/logger.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slate/node_modules/handlebars/dist/cjs/handlebars/no-conflict.js" beforeDir="false" afterPath="$PROJECT_DIR$/slate/node_modules/handlebars/dist/cjs/handlebars/no-conflict.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slate/node_modules/handlebars/dist/cjs/handlebars/runtime.js" beforeDir="false" afterPath="$PROJECT_DIR$/slate/node_modules/handlebars/dist/cjs/handlebars/runtime.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slate/node_modules/handlebars/dist/cjs/handlebars/safe-string.js" beforeDir="false" afterPath="$PROJECT_DIR$/slate/node_modules/handlebars/dist/cjs/handlebars/safe-string.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slate/node_modules/handlebars/dist/cjs/handlebars/utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/slate/node_modules/handlebars/dist/cjs/handlebars/utils.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slate/node_modules/handlebars/dist/cjs/precompiler.js" beforeDir="false" afterPath="$PROJECT_DIR$/slate/node_modules/handlebars/dist/cjs/precompiler.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slate/node_modules/handlebars/dist/handlebars.amd.js" beforeDir="false" afterPath="$PROJECT_DIR$/slate/node_modules/handlebars/dist/handlebars.amd.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slate/node_modules/handlebars/dist/handlebars.amd.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/slate/node_modules/handlebars/dist/handlebars.amd.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slate/node_modules/handlebars/dist/handlebars.js" beforeDir="false" afterPath="$PROJECT_DIR$/slate/node_modules/handlebars/dist/handlebars.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slate/node_modules/handlebars/dist/handlebars.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/slate/node_modules/handlebars/dist/handlebars.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slate/node_modules/handlebars/dist/handlebars.runtime.amd.js" beforeDir="false" afterPath="$PROJECT_DIR$/slate/node_modules/handlebars/dist/handlebars.runtime.amd.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slate/node_modules/handlebars/dist/handlebars.runtime.amd.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/slate/node_modules/handlebars/dist/handlebars.runtime.amd.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slate/node_modules/handlebars/dist/handlebars.runtime.js" beforeDir="false" afterPath="$PROJECT_DIR$/slate/node_modules/handlebars/dist/handlebars.runtime.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slate/node_modules/handlebars/dist/handlebars.runtime.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/slate/node_modules/handlebars/dist/handlebars.runtime.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slate/node_modules/handlebars/lib/handlebars.js" beforeDir="false" afterPath="$PROJECT_DIR$/slate/node_modules/handlebars/lib/handlebars.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slate/node_modules/handlebars/lib/handlebars.runtime.js" beforeDir="false" afterPath="$PROJECT_DIR$/slate/node_modules/handlebars/lib/handlebars.runtime.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slate/node_modules/handlebars/lib/handlebars/base.js" beforeDir="false" afterPath="$PROJECT_DIR$/slate/node_modules/handlebars/lib/handlebars/base.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slate/node_modules/handlebars/lib/handlebars/compiler/ast.js" beforeDir="false" afterPath="$PROJECT_DIR$/slate/node_modules/handlebars/lib/handlebars/compiler/ast.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slate/node_modules/handlebars/lib/handlebars/compiler/base.js" beforeDir="false" afterPath="$PROJECT_DIR$/slate/node_modules/handlebars/lib/handlebars/compiler/base.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slate/node_modules/handlebars/lib/handlebars/compiler/code-gen.js" beforeDir="false" afterPath="$PROJECT_DIR$/slate/node_modules/handlebars/lib/handlebars/compiler/code-gen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slate/node_modules/handlebars/lib/handlebars/compiler/compiler.js" beforeDir="false" afterPath="$PROJECT_DIR$/slate/node_modules/handlebars/lib/handlebars/compiler/compiler.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slate/node_modules/handlebars/lib/handlebars/compiler/helpers.js" beforeDir="false" afterPath="$PROJECT_DIR$/slate/node_modules/handlebars/lib/handlebars/compiler/helpers.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slate/node_modules/handlebars/lib/handlebars/compiler/javascript-compiler.js" beforeDir="false" afterPath="$PROJECT_DIR$/slate/node_modules/handlebars/lib/handlebars/compiler/javascript-compiler.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slate/node_modules/handlebars/lib/handlebars/compiler/parser.js" beforeDir="false" afterPath="$PROJECT_DIR$/slate/node_modules/handlebars/lib/handlebars/compiler/parser.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slate/node_modules/handlebars/lib/handlebars/compiler/printer.js" beforeDir="false" afterPath="$PROJECT_DIR$/slate/node_modules/handlebars/lib/handlebars/compiler/printer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slate/node_modules/handlebars/lib/handlebars/compiler/visitor.js" beforeDir="false" afterPath="$PROJECT_DIR$/slate/node_modules/handlebars/lib/handlebars/compiler/visitor.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slate/node_modules/handlebars/lib/handlebars/compiler/whitespace-control.js" beforeDir="false" afterPath="$PROJECT_DIR$/slate/node_modules/handlebars/lib/handlebars/compiler/whitespace-control.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slate/node_modules/handlebars/lib/handlebars/decorators.js" beforeDir="false" afterPath="$PROJECT_DIR$/slate/node_modules/handlebars/lib/handlebars/decorators.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slate/node_modules/handlebars/lib/handlebars/decorators/inline.js" beforeDir="false" afterPath="$PROJECT_DIR$/slate/node_modules/handlebars/lib/handlebars/decorators/inline.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slate/node_modules/handlebars/lib/handlebars/exception.js" beforeDir="false" afterPath="$PROJECT_DIR$/slate/node_modules/handlebars/lib/handlebars/exception.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slate/node_modules/handlebars/lib/handlebars/helpers.js" beforeDir="false" afterPath="$PROJECT_DIR$/slate/node_modules/handlebars/lib/handlebars/helpers.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slate/node_modules/handlebars/lib/handlebars/helpers/block-helper-missing.js" beforeDir="false" afterPath="$PROJECT_DIR$/slate/node_modules/handlebars/lib/handlebars/helpers/block-helper-missing.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slate/node_modules/handlebars/lib/handlebars/helpers/each.js" beforeDir="false" afterPath="$PROJECT_DIR$/slate/node_modules/handlebars/lib/handlebars/helpers/each.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slate/node_modules/handlebars/lib/handlebars/helpers/helper-missing.js" beforeDir="false" afterPath="$PROJECT_DIR$/slate/node_modules/handlebars/lib/handlebars/helpers/helper-missing.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slate/node_modules/handlebars/lib/handlebars/helpers/if.js" beforeDir="false" afterPath="$PROJECT_DIR$/slate/node_modules/handlebars/lib/handlebars/helpers/if.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slate/node_modules/handlebars/lib/handlebars/helpers/log.js" beforeDir="false" afterPath="$PROJECT_DIR$/slate/node_modules/handlebars/lib/handlebars/helpers/log.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slate/node_modules/handlebars/lib/handlebars/helpers/lookup.js" beforeDir="false" afterPath="$PROJECT_DIR$/slate/node_modules/handlebars/lib/handlebars/helpers/lookup.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slate/node_modules/handlebars/lib/handlebars/helpers/with.js" beforeDir="false" afterPath="$PROJECT_DIR$/slate/node_modules/handlebars/lib/handlebars/helpers/with.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slate/node_modules/handlebars/lib/handlebars/logger.js" beforeDir="false" afterPath="$PROJECT_DIR$/slate/node_modules/handlebars/lib/handlebars/logger.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slate/node_modules/handlebars/lib/handlebars/no-conflict.js" beforeDir="false" afterPath="$PROJECT_DIR$/slate/node_modules/handlebars/lib/handlebars/no-conflict.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slate/node_modules/handlebars/lib/handlebars/runtime.js" beforeDir="false" afterPath="$PROJECT_DIR$/slate/node_modules/handlebars/lib/handlebars/runtime.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slate/node_modules/handlebars/lib/handlebars/safe-string.js" beforeDir="false" afterPath="$PROJECT_DIR$/slate/node_modules/handlebars/lib/handlebars/safe-string.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slate/node_modules/handlebars/lib/handlebars/utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/slate/node_modules/handlebars/lib/handlebars/utils.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slate/node_modules/handlebars/lib/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/slate/node_modules/handlebars/lib/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slate/node_modules/handlebars/lib/precompiler.js" beforeDir="false" afterPath="$PROJECT_DIR$/slate/node_modules/handlebars/lib/precompiler.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slate/node_modules/handlebars/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/slate/node_modules/handlebars/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slate/node_modules/handlebars/print-script" beforeDir="false" afterPath="$PROJECT_DIR$/slate/node_modules/handlebars/print-script" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slate/node_modules/handlebars/release-notes.md" beforeDir="false" afterPath="$PROJECT_DIR$/slate/node_modules/handlebars/release-notes.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slate/node_modules/handlebars/runtime.js" beforeDir="false" afterPath="$PROJECT_DIR$/slate/node_modules/handlebars/runtime.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slate/node_modules/handlebars/types/index.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/slate/node_modules/handlebars/types/index.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slate/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/slate/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slate/src/Navbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/slate/src/Navbar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slate/src/routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/slate/src/routes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/slate/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/slate/src/App.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/slate/src/Schedulec.css" beforeDir="false" afterPath="$PROJECT_DIR$/slate/src/Schedulec.css" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -190,7 +79,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1571193445076</updated>
-      <workItem from="1571193460255" duration="3176000" />
+      <workItem from="1571193460255" duration="3782000" />
+      <workItem from="1571239082012" duration="2055000" />
     </task>
     <servers />
   </component>
@@ -202,7 +92,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>

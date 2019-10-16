@@ -4,9 +4,11 @@
 }
 
 table {
-    margin-top: 3vh;
+    padding-top: 3vh;
     margin-left: 2vw;
     margin-bottom: 3vh;
+    box-shadow: gray;
+    background: white;
 }
 
 table, td, th {
@@ -36,14 +38,15 @@ th {
 }
 
 .rdiv {
-    border-radius: 0.5rem;
-    border: solid black;
+    border: darkgray solid;
     border-width: 1px;
     width: 60vw;
     margin-left: 4vw;
     margin-bottom: 4vw;
-    margin-top: 4vw;
-    box-shadow: 5px 10px 10px darkgrey;
+    margin-top: 10px;
+    box-shadow: 5px 5px 0px grey;
+    blur-radius: none;
+    background: white;
 }
 
 .a {background-color: #FFA726;}

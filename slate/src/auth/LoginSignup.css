@@ -1,0 +1,129 @@
+body {
+    padding: 0;
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.login-area {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: gray;
+    overflow: hidden;
+}
+
+.signup-area {
+    position: absolute;
+    top: 50vh;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: orange;
+    overflow: hidden;
+}
+
+.login-box {
+    position: relative; /*must be relative*/
+    width: 50vh;
+    height: 50vh;
+    padding: 10px;
+    background: orange;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.signup-box {
+    position: relative; /*must be relative*/
+    width: 50vh;
+    height: 50vh;
+    padding: 10px;
+    background: gray;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.signupRedirect {
+    position: absolute;
+    left: 0;
+    top: 140vh;
+    width: 10vw;
+    height: 10vh;
+    background: orange;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: large;
+    z-index: 100;
+}
+
+.loginRedirect {
+    position: absolute;
+    left: 90vw;
+    top: 0vh;
+    width: 10vw;
+    height: 10vh;
+    background: gray;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: large;
+}
+
+.signupPage {
+    position: absolute;
+    left: 90vw;
+    bottom: 90vh;
+    width: 150vw;
+    height: 150vh;
+    background: orange;
+}
+
+
+.signupRedirect:hover {
+    background-color: darkorange;
+}
+
+.loginRedirect:hover {
+    background-color: darkgray;
+}
+
+a, a:hover, a:active, a:visited {
+    color: black;
+    text-decoration: none;
+}
+
+h1 {
+    font-weight: bold;
+    font-size: 3em;
+}
+
+input[type=submit] {
+    padding:5px 15px;
+    background-color: orange;
+    cursor:pointer;
+    border-radius: 0;
+    font-weight: normal;
+    font-size: smaller;
+}
+
+.orangeSubmit {
+    background-color: orange;
+}
+
+.username-font {
+    font-weight: normal;
+    font-size: smaller;
+    text-align: left;
+}

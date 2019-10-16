@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Login from './auth/Login'
 import Signup from './auth/Signup';
+import LoginSignup from './auth/LoginSignup.js'
 import Schedule from './Schedule.js';
 import Navbar from './Navbar.js';
 import Settings from './Settings.js';
@@ -22,6 +23,7 @@ class Routes extends React.Component {
                             <Route exact path = "/login" component={Login} />
                             <Route exact path = "/settings" component={Settings}/>
                             <Route exact path = "/splash" component={Splash}/>
+                            <Route exact path = "/loginsignup" component={LoginSignup}/>
                         </Switch>
                     </div>
                 </div>

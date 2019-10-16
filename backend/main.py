@@ -2,6 +2,7 @@ from flask import *
 from flask_sqlalchemy import SQLAlchemy
 from flask_restplus import Api
 import hashlib
+import requests
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db'
@@ -60,12 +61,14 @@ def login():
         return "login successful", 200
     
 
-@app.route('/signup', methods = ['GET','POST',"OPTIONS"])
+@app.route('/signup', methods = ['GET','POST','OPTIONS'])
 #Get returns the HTML, Post return what the code below does
 def signup():
-    if request.method == 'POST':
-        print("NOO")
-        data = request.json
+
+    print("NOO")
+    data = request.json
+    print(request.content_length)
+    if False:
         username = data['username']
         email = data['email']
         password = data['password']
@@ -78,9 +81,9 @@ def signup():
         user = User(username=username, email=email, password=hashlib.sha256(password.encode('ascii')).hexdigest())
         db.session.add(user)
         db.session.commit()
-        return 'signup successful', 201
-    print("Either Get or Option")
     return 'signup successful', 201
+   # print("Either Get or Option")
+   # return 'signup successful', 201
     #else if the method is GET
 
 

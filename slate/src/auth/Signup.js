@@ -2,6 +2,8 @@ import * as React from "react";
 import { motion, Variants } from "framer-motion";
 import "./LoginSignup.css";
 
+
+
 const vw = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
 const vh = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
 
@@ -38,13 +40,10 @@ class Signup extends React.Component {
 
     handleSubmit(event) {
         var request = new XMLHttpRequest();
-        request.open("POST", 'http://127.0.0.1:5000/signup', true);
-        request.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
-        request.send();
-        var ans=request.response();
-        alert(ans);
+        request.open(['POST'], 'http://127.0.0.1:5000/signup', true);
+        request.setRequestHeader('Usersignup','Content-Type : application/json; charset=UTF-8');
 
-        //request.send(this.state);
+        request.send(this.state);
         event.preventDefault();
 
     }
@@ -80,7 +79,9 @@ class Signup extends React.Component {
                         </form>
                     </div>
                 </div>
+
             </div>
+
         )
     }
 }

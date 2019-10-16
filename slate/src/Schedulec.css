@@ -60,7 +60,8 @@ h1 {
 .button {
     width: 10vw;
     height: 5vh;
-    color: black;
+    background-color: orange;
+    border: solid black 1px;
 }
 
 .rdiv {

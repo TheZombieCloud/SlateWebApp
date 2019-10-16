@@ -37,8 +37,22 @@ class Schedule extends React.Component {
             }
         }
         var start2 = start.split(":");
+        var start3 = start2[1].split(" ");
         var end2 = end.split(":");
-        var duration = (parseInt(end2[0])-parseInt(start2[0]))*60+parseInt(end2[1])-parseInt(start2[1]);
+        var end3 = end2[1].split(" ");
+        if (start3[1]=="AM"&&start2[0]=="12"){
+            start2[0] = 0;
+        }
+        if (start3[1]=="PM"&&start2[0]!="12"){
+            start2[0] = parseInt(start2[0])+12;
+        }
+        if (end3[1]=="AM"&&end2[0]=="12"){
+            end2[0] = 0;
+        }
+        if (end3[1]=="PM"&&end2[0]!="12"){
+            end2[0] = parseInt(end2[0])+12;
+        }
+        var duration = (parseInt(end2[0])-parseInt(start2[0]))*60+parseInt(end3[0])-parseInt(start3[0]);
         Schedule.addScheduleBlock(new ScheduleBlock(name, duration, start, end, parseInt(day)));
         this.state.timetable = Schedule.addTimeTable(this.state.timetable);
         this.forceUpdate();
@@ -58,7 +72,14 @@ class Schedule extends React.Component {
             var end = this.blocks[i].state.end;
             var day = this.blocks[i].state.day;
             var temp = start.split(":");
-            var time = Math.floor((parseInt(temp[0])*60+parseInt(temp[1]))/10);
+            var temp2 = temp[1].split(" ");
+            if (temp2[1]=="AM"&&temp[0]=="12"){
+                temp[0] = 0;
+            }
+            if (temp2[1]=="PM"&&temp[0]!="12"){
+                temp[0] = parseInt(temp[0])+12;
+            }
+            var time = Math.floor((parseInt(temp[0])*60+parseInt(temp[1].split(" ")[0]))/10);
             timetable[time][day] = name + " - [" + start + "-" + end + "]";
             for (var c = 0;c<=duration/10 - 1;c++) {
                 if (c==0) {

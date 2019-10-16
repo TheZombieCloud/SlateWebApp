@@ -80,14 +80,12 @@ class Schedule extends React.Component {
                 temp[0] = parseInt(temp[0])+12;
             }
             var time = Math.floor((parseInt(temp[0])*60+parseInt(temp[1].split(" ")[0]))/10);
-            timetable[time][day] = name + " - [" + start + "-" + end + "]";
-            for (var c = 0;c<=duration/10 - 1;c++) {
-                if (c==0) {
-                    timetable[time][day] = duration / 10;
-                }
-                else {
-                    timetable[time + c][day] = -1;
-                }
+            timetable[time][day] = [<div class = "blocks">
+                                        <h3>{name}</h3>
+                                        <p>{start + "-" + end}</p>
+                                    </div>, duration/10];
+            for (var c = 1;c<=duration/10 - 1;c++) {
+                timetable[time + c][day] = -1;
             }
         }
         return timetable;
@@ -141,7 +139,7 @@ class Schedule extends React.Component {
                 if (this.state.timetable[i-1][c-1]!=0&&this.state.timetable[i-1][c-1]!=-1) {
                     var random = Math.floor(Math.random()*6);
                     var palette = ["a", "b", "c", "d", "e", "f"];
-                    schedule[i][c] = (<td rowspan = {this.state.timetable[i-1][c-1]} class = {palette[random]}></td>);
+                    schedule[i][c] = (<td rowspan = {this.state.timetable[i-1][c-1][1]} class = {palette[random]}>{this.state.timetable[i-1][c-1][0]}</td>);
                 }
                 else if (this.state.timetable[i-1][c-1]!=-1){
                     schedule[i][c] = (<td></td>);

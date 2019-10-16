@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import './Schedulec.css';
 
 class AddScheduleBlock extends React.Component {
 
@@ -37,13 +38,15 @@ class AddScheduleBlock extends React.Component {
 
     render(){
         return(
-            <div>
+            <div class = "adiv">
+                <h1>Add Event</h1>
                 <form onSubmit = {this.Submit}>
-                    Event Name: <input type = "text" value = {this.state.name} onChange = {this.changeName}/>
-                    Event Start: <input type = "text" value = {this.state.start} onChange = {this.changeStart}/>
-                    Event End: <input type = "text" value = {this.state.end} onChange = {this.changeEnd}/>
-                    Day: <input type = "text" value = {this.state.day} onChange = {this.changeDay}/>
-                    <input type = "submit" value = "Submit"/>
+                    <input placeholder = "Event Name" type = "text" value = {this.state.name} onChange = {this.changeName}/>
+                    <input placeholder = "Event Start (xx:xx AM/PM)" type = "text" value = {this.state.start} onChange = {this.changeStart}/>
+                    <input placeholder = "Event End (xx:xx AM/PM)" type = "text" value = {this.state.end} onChange = {this.changeEnd}/>
+                    <input placeholder = "Day (Monday, Tuesday...)" type = "text" value = {this.state.day} onChange = {this.changeDay}/>
+                    <br/>
+                    <input class = "button" type = "submit" value = "Submit"/>
                 </form>
             </div>
         );

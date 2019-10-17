@@ -25,7 +25,6 @@ class Login extends React.Component {
             password: '',
             email: '',
             signup: false,
-            debug: 'debug'
         };
 
         this.handleChange = this.handleChange.bind(this);
@@ -39,17 +38,16 @@ class Login extends React.Component {
 
     handleSubmit(event) {
         //var request = new XMLHttpRequest();
-        console.log(this.state.debug);
-        this.state.debug=this.handleChange=this.state.username;
-        fetch('http://127.0.0.1:5000/login', {
+
+        fetch('/login', {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
       },
-      json: JSON.stringify({
-          username: "fucku",
-          password: "f"
+      body: JSON.stringify({
+          username: this.state.username,
+          password: this.state.password
       })
     })
         //var url="http://127.0.0.1:5000/login";
@@ -82,7 +80,7 @@ class Login extends React.Component {
                         <input type="submit" value="Login2" className="inputSubmitGray"/>
                     </form>
                 </div>
-                <h1> {this.state.debug}</h1>
+
                     <a href = "/signup">
                         <div className="signupRedirect" onClick={() => this.setState({ signup: true })}>
                             Signup

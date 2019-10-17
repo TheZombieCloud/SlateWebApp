@@ -57,17 +57,15 @@ def hello_world():
     request_finished
     return 'Hello World!',4
 
-@app.route('/login', methods = ['GET','POST','OPTIONS'])
+@app.route('/login', methods = ['GET','POST'])
 def login():
-    print("here")
     data=request.json
-    print(request)
     username = data["username"]
     print(username)
     password = data["password"]
-
+    print(password)
     try:
-        auth_results = User.query.filter(User.username == username, User.password == password).one()
+        auth_results = User.query.filter(User.username == username, User.password == hashlib.sha256(password.encode('ascii')).hexdigest()).one()
     except:
         db.session.commit()
         return "authentication failed", 401
@@ -80,12 +78,11 @@ def login():
 #Get returns the HTML, Post return what the code below does
 #that's the gooal...
 def signup():
-    username = request.args.get('username',0)
-    email = request.args.get('email', 0)
-    password = request.args.get('password', 0)
-    print(username)
-    print(email)
-    print(password)
+    data=request.json
+    username = data["username"]
+    email = data["email"]
+    password = str(data["password"])
+
     #checks if email or username already exists
     email_query = User.query.filter(User.email == email).all()
     uname_query = User.query.filter(User.username == username).all()
@@ -93,7 +90,6 @@ def signup():
         return 'username or email already exists', 409
 
     user = User(username=username, email=email, password=hashlib.sha256(password.encode('ascii')).hexdigest())
-    print(user)
     db.session.add(user)
     db.session.commit()
     return 'signup successful', 201

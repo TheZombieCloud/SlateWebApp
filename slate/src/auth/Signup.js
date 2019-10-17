@@ -27,51 +27,33 @@ class Signup extends React.Component {
             password: '',
             email: '',
             signup: false,
-            debug: 'debug',
+
         };
 
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.setState = this.setState.bind(this);
-        this.ajax_get=this.ajax_get(this);
+
     }
 
     handleChange(event){
         this.setState({[event.target.id]: event.target.value})
     }
-    ajax_get(url) {
-        var xmlhttp = new XMLHttpRequest();
-        xmlhttp.onreadystatechange = function() {
-            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                console.log('responseText:' + xmlhttp.responseText);
-                try {
-                    var data = JSON.parse(xmlhttp.responseText);
-                } catch(err) {
-                    console.log(err.message + " in " + xmlhttp.responseText);
-                    return 0;
-                }
-
-            }
-        };
-
-        xmlhttp.open("GET", url, true);
-        xmlhttp.send();
-        return xmlhttp.responseText;
-    };
 
     handleSubmit(event) {
-        var request = new XMLHttpRequest();
-        var url="http://127.0.0.1:5000/signup?username="+this.state.username+"&email="+this.state.email+
-            "&password="+this.state.password;
-        request.open("POST", url, true);
-        request.setRequestHeader('Usersignup','Content-Type : application/json; charset=UTF-8');
-        request.send();
-        event.preventDefault();
-        while(request.DONE<4){
-            continue;
-        }
-        this.state.debug=this.handleChange=request.response;
-        this.forceUpdate();
+
+        fetch('/signup', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+          username: this.state.username,
+          email: this.state.email,
+          password: this.state.password
+      })
+    })
 
 
     }
@@ -80,9 +62,6 @@ class Signup extends React.Component {
         return(
             <div className="signupPage" animate={this.state.signup ? "signup" : "login"} variants={signupPage}>
                 <div className="signup-area">
-                    <h1> {this.state.debug} </h1>
-
-
                     <a href = "/Login">
                     <div className="loginRedirect" onClick={() => this.setState({ signup: false})}>
                            Login

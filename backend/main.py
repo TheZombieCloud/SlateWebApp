@@ -42,10 +42,19 @@ class Friend(db.Model):
     def __str__(self):
         return str(self.friend_id)
 
-
+@app.route("/api/info")
+def api_info():
+    info = {
+       "ip" : "127.0.0.1",
+       "hostname" : "everest",
+       "description" : "Main server",
+       "load" : [ 3.21, 7, 14 ]
+    }
+    return jsonify(info)
 
 @app.route('/')
 def hello_world():
+    request_finished
     return 'Hello World!',4
 
 @app.route('/login', methods = ['GET','POST'])
@@ -63,25 +72,24 @@ def login():
 
 @app.route('/signup', methods = ['GET','POST','OPTIONS'])
 #Get returns the HTML, Post return what the code below does
+#that's the gooal...
 def signup():
+    username = request.args.get('username',0)
+    email = request.args.get('email', 0)
+    password = request.args.get('password', 0)
+    print(username)
+    print(email)
+    print(password)
+    #checks if email or username already exists
+    email_query = User.query.filter(User.email == email).all()
+    uname_query = User.query.filter(User.username == username).all()
+    if (len(email_query) > 0 or len(uname_query) > 0):
+        return 'username or email already exists', 409
 
-    print("NOO")
-    data = request.json
-    print(request)
-    if False:
-        username = data['username']
-        email = data['email']
-        password = data['password']
-        #checks if email or username already exists
-        email_query = User.query.filter(User.email == email).all()
-        uname_query = User.query.filter(User.username == username).all()
-        if (len(email_query) > 0 or len(uname_query) > 0):
-            return 'username or email already exists', 409
-
-        user = User(username=username, email=email, password=hashlib.sha256(password.encode('ascii')).hexdigest())
-        db.session.add(user)
-        db.session.commit()
-    db.session.commit();
+    user = User(username=username, email=email, password=hashlib.sha256(password.encode('ascii')).hexdigest())
+    print(user)
+    db.session.add(user)
+    db.session.commit()
     return 'signup successful', 201
    # print("Either Get or Option")
    # return 'signup successful', 201

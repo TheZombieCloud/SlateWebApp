@@ -57,17 +57,19 @@ def hello_world():
     request_finished
     return 'Hello World!',4
 
-@app.route('/login', methods = ['GET','POST'])
+@app.route('/login', methods = ['GET','POST','OPTIONS'])
 def login():
-    if (request.method=='POST'):
-        data = request.json
-        email = data['email']
-        password = hashlib.sha256(data['password'].encode('ascii')).hexdigest()
-        try:
-            auth_results = User.query.filter(User.email == email, User.password == password).one()
-        except:
-            return "authentication failed", 401
-        return "login successful", 200
+    print("here")
+    username =  request.args.get('username',0)
+    password = hashlib.sha256(request.args.get('password',0).encode('ascii')).hexdigest()
+    try:
+        auth_results = User.query.filter(User.username == username, User.password == password).one()
+    except:
+        db.session.commit()
+        return "authentication failed", 401
+
+    db.session.commit()
+    return "login successful", 200
     
 
 @app.route('/signup', methods = ['GET','POST','OPTIONS'])

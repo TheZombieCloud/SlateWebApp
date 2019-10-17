@@ -38,9 +38,12 @@ class Login extends React.Component {
 
     handleSubmit(event) {
         var request = new XMLHttpRequest();
-        request.open('POST', '', true);
-        request.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
-        request.send(this.state);
+        var url="http://127.0.0.1:5000/login?username="+this.state.username
+            +"&password="+this.state.password;
+
+        request.open('POST', url, true);
+        request.setRequestHeader('Userlogin','Content-Type : application/json; charset=UTF-8');
+        request.send();
         event.preventDefault();
     }
 
@@ -60,7 +63,7 @@ class Login extends React.Component {
                             <input id="password" type="password" value={this.state.password} onChange={this.handleChange} required />
                         </label>
                         <br />
-                        <input type="submit" value="Login" className="inputSubmitGray"/>
+                        <input type="submit" value="Login2" className="inputSubmitGray"/>
                     </form>
                 </div>
                     <a href = "/signup">

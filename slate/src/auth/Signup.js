@@ -42,7 +42,7 @@ class Signup extends React.Component {
 
     handleSubmit(event) {
 
-        fetch('/signup', {
+        var response=fetch('/signup', {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
@@ -54,6 +54,11 @@ class Signup extends React.Component {
           password: this.state.password
       })
     })
+        this.state.username=this.handlechange=response.responseText;
+
+        this.state.forceUpdate();
+        event.preventDefault();
+
 
 
     }

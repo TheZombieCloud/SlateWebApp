@@ -37,8 +37,6 @@ class Login extends React.Component {
     }
 
     handleSubmit(event) {
-        //var request = new XMLHttpRequest();
-
         fetch('/login', {
       method: 'POST',
       headers: {
@@ -50,13 +48,7 @@ class Login extends React.Component {
           password: this.state.password
       })
     })
-        //var url="http://127.0.0.1:5000/login";
-           // ?username="+this.state.username
-           // +"&password="+this.state.password;
-
-       // request.open('POST', url, true);
-        //request.setRequestHeader('Userlogin','Content-Type : application/json; charset=UTF-8');
-        //request.send(JSON.stringify({username:this.state.username, password:this.state.password}));
+       window.location = "http://127.0.0.1:5000";
         event.preventDefault();
     }
 

@@ -24,7 +24,8 @@ class Login extends React.Component {
             username: '',
             password: '',
             email: '',
-            signup: false
+            signup: false,
+            debug: 'debug'
         };
 
         this.handleChange = this.handleChange.bind(this);
@@ -37,13 +38,27 @@ class Login extends React.Component {
     }
 
     handleSubmit(event) {
-        var request = new XMLHttpRequest();
-        var url="http://127.0.0.1:5000/login?username="+this.state.username
-            +"&password="+this.state.password;
+        //var request = new XMLHttpRequest();
+        console.log(this.state.debug);
+        this.state.debug=this.handleChange=this.state.username;
+        fetch('http://127.0.0.1:5000/login', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      json: JSON.stringify({
+          username: "fucku",
+          password: "f"
+      })
+    })
+        //var url="http://127.0.0.1:5000/login";
+           // ?username="+this.state.username
+           // +"&password="+this.state.password;
 
-        request.open('POST', url, true);
-        request.setRequestHeader('Userlogin','Content-Type : application/json; charset=UTF-8');
-        request.send();
+       // request.open('POST', url, true);
+        //request.setRequestHeader('Userlogin','Content-Type : application/json; charset=UTF-8');
+        //request.send(JSON.stringify({username:this.state.username, password:this.state.password}));
         event.preventDefault();
     }
 
@@ -52,6 +67,7 @@ class Login extends React.Component {
             <div className="login-area">
                 <div id="login" className="login-box">
                     <h1>S L A T E</h1>
+
                     <form id="form" onSubmit={this.handleSubmit} className="login-box">
                         <label>
                             <div className="username-font"> USERNAME </div>
@@ -66,6 +82,7 @@ class Login extends React.Component {
                         <input type="submit" value="Login2" className="inputSubmitGray"/>
                     </form>
                 </div>
+                <h1> {this.state.debug}</h1>
                     <a href = "/signup">
                         <div className="signupRedirect" onClick={() => this.setState({ signup: true })}>
                             Signup

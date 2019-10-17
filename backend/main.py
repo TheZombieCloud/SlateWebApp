@@ -60,8 +60,12 @@ def hello_world():
 @app.route('/login', methods = ['GET','POST','OPTIONS'])
 def login():
     print("here")
-    username =  request.args.get('username',0)
-    password = hashlib.sha256(request.args.get('password',0).encode('ascii')).hexdigest()
+    data=request.json
+    print(request)
+    username = data["username"]
+    print(username)
+    password = data["password"]
+
     try:
         auth_results = User.query.filter(User.username == username, User.password == password).one()
     except:

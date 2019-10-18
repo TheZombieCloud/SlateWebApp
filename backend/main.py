@@ -3,13 +3,14 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_restplus import Api
 import hashlib
 import requests
+from backend.config import Config
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db'
+#app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db'
+app.config.from_object(Config)
 #Before initial, set the database URI to our database.
 db = SQLAlchemy(app)
 daysinweek = {'Monday':1, 'Tuesday':2, 'Wednesday':3, 'Thursday':4, 'Friday':5, 'Saturday':6, 'Sunday':7}
-
 
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)

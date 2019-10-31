@@ -12,6 +12,10 @@ table {
     background: white;
 }
 
+ftd {
+    border-collapse: separate;
+}
+
 table, td, th {
     border-spacing: 3px;
 }

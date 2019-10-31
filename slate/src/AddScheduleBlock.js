@@ -42,8 +42,11 @@ class AddScheduleBlock extends React.Component {
                 <h1>Add Event</h1>
                 <form onSubmit = {this.Submit}>
                     <input class = "input" placeholder = "Event Name" type = "text" value = {this.state.name} onChange = {this.changeName}/>
+                    <br/>
                     <input class = "input" placeholder = "Event Start (xx:xx AM/PM)" type = "text" value = {this.state.start} onChange = {this.changeStart}/>
+                    <br/>
                     <input class = "input" placeholder = "Event End (xx:xx AM/PM)" type = "text" value = {this.state.end} onChange = {this.changeEnd}/>
+                    <br/>
                     <input class = "input" placeholder = "Day (Monday, Tuesday...)" type = "text" value = {this.state.day} onChange = {this.changeDay}/>
                     <br/>
                     <input class = "button" type = "submit" value = "Submit"/>

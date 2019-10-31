@@ -42,21 +42,20 @@ class Login extends React.Component {
               headers: {
               'Accept': 'application/json',
               'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          username: this.state.username,
-          password: this.state.password
-        })
-        })
-        .then(response => {
-              if (response.ok) {
+            },
+            body: JSON.stringify({
+                username: this.state.username,
+                password: this.state.password
+            })
+        }).then(response => {
+            if (response.ok) {
                 localStorage.setItem('auth', true);
                 return response.json();
-              } else {
+            } else {
                 throw new Error('Sum ting wong wi tu lo ho lee fuk bang ding ow...');
-              }
+            }
         })
-        window.location = "http://127.0.0.1:5000";
+        window.location = "http://localhost:5000";
         event.preventDefault();
     }
 

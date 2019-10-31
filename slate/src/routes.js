@@ -13,7 +13,7 @@ class Routes extends React.Component {
         return (
             <BrowserRouter>
                 <div>
-                    <div position = "sticky">
+                    <div>
                         <Navbar />
                     </div>
                     <div>

@@ -41,26 +41,21 @@ class Signup extends React.Component {
     }
 
     handleSubmit(event) {
-
         var response=fetch('/signup', {
-      method: 'POST',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-          username: this.state.username,
-          email: this.state.email,
-          password: this.state.password
-      })
-    })
-        this.state.username=this.handlechange=response.responseText;
-
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                username: this.state.username,
+                email: this.state.email,
+                password: this.state.password
+            })
+        })
+        this.state.username=this.handleChange=response.responseText;
         this.state.forceUpdate();
         event.preventDefault();
-
-
-
     }
 
     render() {

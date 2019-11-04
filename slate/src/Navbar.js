@@ -47,38 +47,61 @@ const useStyles = makeStyles(theme => ({
     },
 }));
 
-const Appbar = () => {
+const Appbar = (props) => {
     const classes = useStyles();
     return(
         <AppBar style={{ backgroundColor: '#FAB941' }} className = {classes.root}>
             <Toolbar>
-                <Typography variant = "h6">
-                    Slate
-                </Typography>
+                <NavLink style={{color: 'white'}} to = "/">
+                    <Typography variant = "h6">
+                        Slate
+                    </Typography>
+                </NavLink>
                 <div className = {classes.search}>
                     <SearchIcon className = {classes.searchIcon}/>
                     <InputBase placeholder="Search for Friends" />
                 </div>
                 <Button><NavLink className = "inactive" activeClassName = "active" to = "/">Home</NavLink></Button>
-                <Button><NavLink className = "inactive" activeClassName = "active" to = "/signup">Signup</NavLink></Button>
-                <Button><NavLink className = "inactive" activeClassName = "active" to = "/login">Login</NavLink></Button>
+                <LoginControl isLoggedIn={props.isLoggedIn}></LoginControl>
                 <Button><NavLink className = "inactive" activeClassName = "active" to = "/splash">Splash</NavLink></Button>
                 <Button><NavLink className = "inactive" activeClassName = "active" to = "/pp">Profile/Feed</NavLink></Button>
+                
             </Toolbar>
         </AppBar>
     );
+}
+
+class LoginControl extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {isLoggedIn: props.isLoggedIn};
+    }
+
+    render() {
+        const isLoggedIn = this.state.isLoggedIn;
+        if(isLoggedIn){
+            return <Button><NavLink className = "inactive" activeClassName = "active" to = "/login">Login</NavLink></Button>
+        }
+        return <Button><NavLink className = "inactive" activeClassName = "active" to = "/signup">Signup</NavLink></Button>
+    }
+
 }
 
 class Navbar extends React.Component {
 
     constructor(props){
         super(props);
+        this.state = {isLoggedIn: props.isLoggedIn}
+    }
+
+    setLoggedIn(loggedIn) {
+        this.setState({isLoggedIn: loggedIn});
     }
 
     render(){
         return(
             <div>
-                <Appbar/>
+                <Appbar isLoggedIn={this.state.isLoggedIn}/>
             </div>
         );
     }

@@ -1,13 +1,8 @@
 class AuthService {
-    static isAuthenticated = true;
     
     constructor() {
-        //autoAuth();
-
-    }
-
-    static autoAuth() {
-        return;
+        
+        this.state = {isAuthenticated: false}
     }
 
     createUser(userData) {
@@ -18,10 +13,8 @@ class AuthService {
 
     }
 
-    static logout() {
-        console.log(AuthService.isAuthenticated);
+    logout() {
         AuthService.isAuthenticated = false;
-        console.log(AuthService.isAuthenticated);
     }
 }
 

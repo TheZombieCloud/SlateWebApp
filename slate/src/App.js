@@ -1,15 +1,19 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import Schedule from "./Schedule";
-import Login from "./auth/OldLogin.js"
-import Signup from "./auth/Signup.js";
+import { BrowserRouter } from 'react-router-dom';
 import Routes from "./routes.js";
+import Navbar from './Navbar.js';
 
 function App() {
   return (
     <div className="App">
+      <BrowserRouter>        
+        <Navbar isLoggedIn={false}/>
+          
         <Routes />
+      </BrowserRouter>
+
     </div>
   );
 }

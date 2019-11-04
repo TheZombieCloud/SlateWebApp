@@ -37,26 +37,25 @@ class Login extends React.Component {
     }
 
     handleSubmit(event) {
-        //var request = new XMLHttpRequest();
-
         fetch('/login', {
-      method: 'POST',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-          username: this.state.username,
-          password: this.state.password
-      })
-    })
-        //var url="http://127.0.0.1:5000/login";
-           // ?username="+this.state.username
-           // +"&password="+this.state.password;
-
-       // request.open('POST', url, true);
-        //request.setRequestHeader('Userlogin','Content-Type : application/json; charset=UTF-8');
-        //request.send(JSON.stringify({username:this.state.username, password:this.state.password}));
+              method: 'POST',
+              headers: {
+              'Accept': 'application/json',
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                username: this.state.username,
+                password: this.state.password
+            })
+        }).then(response => {
+            if (response.ok) {
+                localStorage.setItem('auth', true);
+                return response.json();
+            } else {
+                throw new Error('Sum ting wong wi tu lo ho lee fuk bang ding ow...');
+            }
+        })
+        window.location = "http://localhost:5000";
         event.preventDefault();
     }
 

@@ -26,7 +26,7 @@ const useStyles = makeStyles(theme => ({
             backgroundColor: fade(theme.palette.common.white, 0.3),
         },
         marginLeft: 0,
-        marginRight: theme.spacing(50),
+        marginRight: theme.spacing(60),
         flexGrow: 1,
         width: '100%',
         [theme.breakpoints.up('sm')]: {
@@ -35,13 +35,15 @@ const useStyles = makeStyles(theme => ({
         },
     },
     searchIcon: {
-        width: theme.spacing(5),
-        height: '100%',
+        width: theme.spacing(7),
+        height: '80%',
         position: 'absolute',
         pointerEvents: 'none',
         display: 'flex',
+        verticalAlign: 'middle',
         alignItems: 'center',
         justifyContent: 'center',
+        marginTop: '4px',
     },
 }));
 
@@ -54,9 +56,7 @@ const Appbar = () => {
                     Slate
                 </Typography>
                 <div className = {classes.search}>
-                    <div className = {classes.searchIcon}>
-                        <SearchIcon />
-                    </div>
+                    <SearchIcon className = {classes.searchIcon}/>
                     <InputBase placeholder="Search for Friends" />
                 </div>
                 <Button><NavLink className = "inactive" activeClassName = "active" to = "/">Home</NavLink></Button>

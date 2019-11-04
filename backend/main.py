@@ -3,13 +3,74 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_restplus import Api
 import hashlib
 import requests
+from backend.config import Config
+import firebase_admin
+from firebase_admin import credentials
+from firebase_admin import db
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db'
+
+cred = credentials.Certificate('../serviceKey.json')
+firebase_admin.initialize_app(cred, {
+    'databaseURL': 'https://slate-bba57.firebaseio.com/'
+})
+
+ref = db.reference('/slate')
+
+class User ():
+    def __init__(self, id, username, email, password, timetable, friends):
+        self._id = id
+        self._username = username
+        self._email = email
+        self._password = password
+        self._timetable = timetable
+        self._friends = friends
+
+class TimeSlot ():
+    def __init__(self, start, end, day):
+        self._start = start
+        self._end = end
+        self._day = day
+
+class Friend ():
+    def __init__(self, friendid):
+        self._friendid = friendid
+
+@app.route('/')
+def index():
+    return 'Hello'
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    data = request.get_json()
+    username = data['username']
+    password = data['password']
+    snapshot = ref.child(username).child('password').get()
+    if (password==snapshot):
+        print(snapshot)
+        return "login successful", 200
+
+@app.route ('/signup', methods=['GET', 'POST', 'OPTIONS'])
+def signup():
+    data = request.get_json()
+    username = data['username']
+    password = data['password']
+    email = data['email']
+    ref.child(username).set({
+        'password': password,
+        'email': email
+    })
+    return "successful", 200
+
+if __name__ == '__main__':
+    app.run()
+
+'''
+#app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db'
+app.config.from_object(Config)
 #Before initial, set the database URI to our database.
 db = SQLAlchemy(app)
 daysinweek = {'Monday':1, 'Tuesday':2, 'Wednesday':3, 'Thursday':4, 'Friday':5, 'Saturday':6, 'Sunday':7}
-
 
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -219,6 +280,5 @@ def comparetime():
             jsonstr=jsonstr+"]"
     jsonstr=jsonstr+"}"
     return jsonstr,200
-if __name__ == '__main__':
-    app.run()
+'''
 

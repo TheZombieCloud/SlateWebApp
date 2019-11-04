@@ -233,7 +233,7 @@ class Schedule extends React.Component {
                 <br/><br/><br/><br/>
                 <table>
                     <tr>
-                        <td colspan = "3">
+                        <td colspan = "3" class = "ftd">
                             <div class = "rdiv">
                                 <table>
                                     {format}

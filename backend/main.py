@@ -7,8 +7,8 @@ from backend.config import Config
 import firebase_admin
 from firebase_admin import credentials
 from firebase_admin import db
-
 app = Flask(__name__)
+app.config['SECRET_KEY'] = 'super secret'
 
 cred = credentials.Certificate('../serviceKey.json')
 firebase_admin.initialize_app(cred, {
@@ -40,15 +40,27 @@ class Friend ():
 def index():
     return 'Hello'
 
-@app.route('/login', methods=['GET', 'POST'])
+@app.route('/login', methods=['POST'])
 def login():
     data = request.get_json()
     username = data['username']
     password = data['password']
     snapshot = ref.child(username).child('password').get()
     if (password==snapshot):
-        print(snapshot)
+        #print(snapshot)
+        ref.child(username).update({
+            'isLoggedIn': 1
+        })
+        session['username'] = username
         return "login successful", 200
+
+@app.route('/login', methods=['GET'])
+def login2():
+    username = session['username']
+    snapshot = ref.child(username).child('isLoggedIn').get()
+    if (snapshot==1):
+        return "isLoggedIn", 200
+    return "Error", 404;
 
 @app.route ('/signup', methods=['GET', 'POST', 'OPTIONS'])
 def signup():

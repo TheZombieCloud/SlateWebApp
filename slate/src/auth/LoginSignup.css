@@ -1,10 +1,133 @@
 body {
+    width: 100%;
+    height: 100%;
+    /*background: linear-gradient(45deg, #ff9f13 0%, rgb(203, 126, 17) 100%);*/
+    overflow-y: scroll;
+    overflow-x: hidden;
     padding: 0;
     margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-    overflow-x: hidden;
-    overflow-y: hidden;
+    font-family: Avenir;
+}
 
+.img2l {
+    z-index: -1;
+    position: fixed;
+    margin: 0;
+    padding: 0;
+}
+
+.loginpage {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+}
+
+.slideCenterl {
+    height: 100vh;
+    /*
+    border-radius: 5px;
+    border-style: solid;
+    border-color: black;
+    border-width: 5px;
+    */
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    color: #343434;
+    font-weight: bold;
+    font-size: 3em;
+}
+
+.titlel1 {
+    text-align: left;
+    margin-left: 2vw;
+}
+
+.titlel2 {
+    margin-top: 0.8ch;
+    color: #fa9038;
+    font-size: 40px;
+    position: fixed;
+}
+
+.username {
+    border: solid #fa9038 1px;
+}
+
+form {
+    font-size: 0;
+}
+
+form input {
+    font-size: 20px;
+}
+
+textarea:focus, input:focus{
+    outline: none;
+}
+
+.inputtext {
+    margin: 0;
+    padding: 0;
+    margin-top: 2vh;
+    margin-left: 1vw;
+    font-size: 15px;
+    color: #fa9038;
+}
+
+.inputfield {
+    z-index: 1;
+    margin: 0px;
+    margin-top: 2vh;
+    margin-bottom: 1vh;
+    color: #fa9038;
+    border: none;
+    margin-left: 1vw;
+    width: 80%;
+}
+
+.new {
+    margin: 0;
+    margin-top: 0.5vh;
+    color: #fa9038;
+    font-size: 15px;
+}
+
+.password {
+    border: solid #fa9038 1px;
+    margin-top: -1px;
+}
+
+.titlel3 {
+    font-size: 40px;
+    margin-top: 10ch;
+    margin-right: 10vw;
+    color: #fa9038;
+}
+
+.login2 {
+    margin-top: 5vh;
+    width: 25%;
+    border: solid #fa9038 1px;
+}
+
+.text2 {
+    margin: 0;
+    text-align: center;
+    margin-top: 5vh;
+    margin-bottom: 1vh;
+    background: transparent;
+    box-shadow: none;
+    border: solid #fa9038 1px;
+    color: #fa9038;
+    font-size: 25px;
+}
+
+a, a:hover, a:active, a:visited {
+    text-decoration: none;
 }
 
 .login-area {
@@ -93,16 +216,6 @@ body {
 
 .loginRedirect:hover {
     background-color: darkgray;
-}
-
-a, a:hover, a:active, a:visited {
-    color: black;
-    text-decoration: none;
-}
-
-h1 {
-    font-weight: bold;
-    font-size: 3em;
 }
 
 .inputSubmitOrange {

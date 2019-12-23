@@ -9,19 +9,38 @@ import Splash from './Splash.js';
 import ProfilePage from './ProfilePage.js';
 
 class Routes extends React.Component {
+
+    constructor(props){
+        super(props);
+        this.state = {isLoggedIn: props.isLoggedIn};
+    }
+
     render(){
-        return (        
-            <div>
-                <Switch>
-                    <Route exact path = "/" component = {Schedule} />
-                    <Route exact path = "/signup" component={Signup} />
-                    <Route exact path = "/login" component={Login} />
-                    <Route exact path = "/splash" component={Splash}/>
-                    <Route exact path = "/pp" component={ProfilePage}/>
-                </Switch>
-            </div>
-                
-        );
+        if (this.state.isLoggedIn==='true'){
+            //throw new Error (localStorage.getItem('log'));
+            return (
+              <div>
+                  <Switch>
+                      <Route exact path = "/" component = {Schedule}/>
+                  </Switch>
+              </div>
+            );
+        }
+        else {
+            //throw new Error (localStorage.getItem('log'));
+            return (
+                <div>
+                    <Switch>
+                        <Route exact path="/" component={Splash}/>
+                        <Route exact path="/signup" component={Signup}/>
+                        <Route exact path="/login" component={Login}/>
+                        <Route exact path="/schedule" component={Schedule}/>
+                        <Route exact path="/pp" component={ProfilePage}/>
+                    </Switch>
+                </div>
+
+            );
+        }
     }
 }
 

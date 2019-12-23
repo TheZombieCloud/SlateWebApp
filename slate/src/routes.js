@@ -12,35 +12,21 @@ class Routes extends React.Component {
 
     constructor(props){
         super(props);
-        this.state = {isLoggedIn: props.isLoggedIn};
     }
 
     render(){
-        if (this.state.isLoggedIn==='true'){
-            //throw new Error (localStorage.getItem('log'));
-            return (
-              <div>
-                  <Switch>
-                      <Route exact path = "/" component = {Schedule}/>
-                  </Switch>
-              </div>
-            );
-        }
-        else {
-            //throw new Error (localStorage.getItem('log'));
-            return (
-                <div>
-                    <Switch>
-                        <Route exact path="/" component={Splash}/>
-                        <Route exact path="/signup" component={Signup}/>
-                        <Route exact path="/login" component={Login}/>
-                        <Route exact path="/schedule" component={Schedule}/>
-                        <Route exact path="/pp" component={ProfilePage}/>
-                    </Switch>
-                </div>
+        return (
+            <div>
+                <Switch>
+                    <Route exact path="/" component={Splash}/>
+                    <Route exact path="/signup" component={Signup}/>
+                    <Route exact path="/login" component={Login}/>
+                    <Route exact path="/schedule" component={Schedule}/>
+                    <Route exact path="/pp" component={ProfilePage}/>
+                </Switch>
+            </div>
 
-            );
-        }
+        );
     }
 }
 

@@ -1,18 +1,21 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import { BrowserRouter } from 'react-router-dom';
+import { Router } from 'react-router-dom';
 import Routes from "./routes.js";
 import Navbar from './Navbar.js';
+import history from './history.js'
 
 function checkLogged() {
     fetch('/login', {
         method: 'GET',
     }).then(response => {
         if (response.ok){
-            localStorage.setItem('log', 'true');
+            history.push('/pp');
+            return;
         } else {
-            localStorage.setItem('log', 'false');
+            history.push('/');
+            return;
         }
     });
     //throw new Error(localStorage.getItem('log'));
@@ -27,10 +30,10 @@ function App() {
     checkLogged();
     return (
         <div className="App">
-            <BrowserRouter>
+            <Router history = {history}>
           
-            <Routes isLoggedIn = {returnLog()}/>
-        </BrowserRouter>
+                <Routes/>
+            </Router>
         </div>
     );
 }

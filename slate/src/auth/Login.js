@@ -2,6 +2,7 @@ import * as React from "react";
 import { motion, Variants } from "framer-motion";
 import "./LoginSignup.css";
 import img2 from "../RightTopimg.svg";
+import history from '../history.js';
 
 const vw = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
 const vh = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
@@ -51,12 +52,11 @@ class Login extends React.Component {
         }).then(response => {
             if (response.ok) {
                 localStorage.setItem('auth', true);
-                window.location = "http://localhost:3000";
-                window.location = "http://localhost:3000";
+                history.push('/pp');
                 return response.json();
             } else {
-                window.location = "http://localhost:5000/login";
-                throw new Error('Sum ting wong wi tu lo ho lee fuk bang ding ow...');
+                history.push('/login');
+                return response.json();
             }
         })
         event.preventDefault();

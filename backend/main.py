@@ -53,6 +53,7 @@ def login():
         })
         session['username'] = username
         return "login successful", 200
+    return "login failed", 404
 
 @app.route('/login', methods=['GET'])
 def login2():
@@ -62,15 +63,17 @@ def login2():
         return "isLoggedIn", 200
     return "Error", 404;
 
-@app.route ('/signup', methods=['GET', 'POST', 'OPTIONS'])
+@app.route ('/signup', methods=['POST'])
 def signup():
     data = request.get_json()
     username = data['username']
     password = data['password']
     email = data['email']
     ref.child(username).set({
+        'username': username,
         'password': password,
-        'email': email
+        'email': email,
+        'isLoggedIn': 0
     })
     return "successful", 200
 

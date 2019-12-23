@@ -4,7 +4,7 @@ import './App.css';
 import { Router } from 'react-router-dom';
 import Routes from "./routes.js";
 import Navbar from './Navbar.js';
-import history from './history.js'
+import history from './history.js';
 
 function checkLogged() {
     fetch('/login', {
@@ -13,8 +13,7 @@ function checkLogged() {
         if (response.ok){
             history.push('/pp');
             return;
-        } else {
-            history.push('/');
+        } else{
             return;
         }
     });

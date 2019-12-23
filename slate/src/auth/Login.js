@@ -3,6 +3,7 @@ import { motion, Variants } from "framer-motion";
 import "./LoginSignup.css";
 import img2 from "../RightTopimg.svg";
 import history from '../history.js';
+import { NavLink } from 'react-router-dom';
 
 const vw = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
 const vh = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
@@ -79,7 +80,7 @@ class Login extends React.Component {
                                 <h6 class = "inputtext">Password</h6>
                                 <input id = "password" class = "inputfield" type = "password" value={this.state.password} onChange={this.handleChange} required/>
                             </div>
-                            <p className="new">New around here? Signup</p>
+                            <p className="new">New around here? <NavLink className = "new" to = "/signup">Signup</NavLink></p>
                             <input type="submit" className="text2" value = "Login"/>
                         </form>
                     </div>

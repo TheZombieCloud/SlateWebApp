@@ -54,6 +54,13 @@ def login():
         session['username'] = username
         return "login successful", 200
     return "login failed", 404
+@app.route('/logout', methods=['POST'])
+def logout():
+    username=session['username']
+    ref.child(username).update({
+        'isLoggedIn':0
+    })
+    return "logout successful", 200
 
 @app.route('/login', methods=['GET'])
 def login2():

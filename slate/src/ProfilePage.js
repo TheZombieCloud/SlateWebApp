@@ -1,12 +1,25 @@
 import React from 'react';
 import './PPc.css';
 import "./SettingsStyles.css";
+import history from "./history";
 
 class ProfilePage extends React.Component{
     constructor(props){
         super(props);
     }
+     handleSubmit() {
+        fetch('/logout', {
+              method: 'POST'
+        }).then(response => {
+            if (response.ok) {
+                localStorage.setItem('auth', 'false');
+                history.push('/');
 
+            } else {
+                history.push('/pp');
+            }
+        })
+    }
     render(){
         return(
             <div class = "container">
@@ -23,6 +36,7 @@ class ProfilePage extends React.Component{
                         <button className="settingButton">Change Password</button>
                         <button className="settingButton">Change Email</button>
                         <button className="settingButton">Change Schedule Preferences</button>
+                        <button className="settingButton" onClick={this.handleSubmit}>Log Out</button>
                     </div>
                 </div>
                 <div class = "feed">

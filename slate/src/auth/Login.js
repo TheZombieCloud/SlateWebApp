@@ -52,7 +52,7 @@ class Login extends React.Component {
             })
         }).then(response => {
             if (response.ok) {
-                localStorage.setItem('auth', true);
+                localStorage.setItem('auth', 'true');
                 history.push('/pp');
                 return response.json();
             } else {
@@ -69,7 +69,7 @@ class Login extends React.Component {
                 <div class = "slideCenterl">
                     <img className="img2l" src={img2} width="400" height="400"/>
                     <div className="titlel1">
-                        <h1 className="titlel2">Slate</h1>
+                        <NavLink to = "/"><h1 className="titlel2">Slate</h1></NavLink>
                         <h1 className = "titlel3">Welcome Back</h1>
                         <form onSubmit={this.handleSubmit}>
                             <div class = "username">

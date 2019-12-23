@@ -72,7 +72,7 @@ class Signup extends React.Component {
                 <div className="slideCenterl">
                     <img className="img2l" src={img2} width="400" height="400"/>
                     <div className="titlel1">
-                        <h1 className="titlel2">Slate</h1>
+                        <NavLink to = "/"><h1 className="titlel2">Slate</h1></NavLink>
                         <h1 className="titlel3">Register</h1>
                         <form onSubmit={this.handleSubmit}>
                             <div className="username">

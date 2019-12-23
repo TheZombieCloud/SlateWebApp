@@ -12,8 +12,10 @@ function checkLogged() {
     }).then(response => {
         if (response.ok){
             history.push('/pp');
+            localStorage.setItem('auth', 'true');
             return;
         } else{
+            localStorage.setItem('auth', 'false');
             return;
         }
     });

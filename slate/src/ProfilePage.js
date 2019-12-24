@@ -2,6 +2,7 @@ import React from 'react';
 import './PPc.css';
 import "./SettingsStyles.css";
 import img2 from "./RightTopimg.svg";
+import history from "./history.js";
 import {NavLink} from "react-router-dom";
 
 class ProfilePage extends React.Component{
@@ -27,7 +28,7 @@ class ProfilePage extends React.Component{
                 <div className = "container2">
                     <img className="img2p" src={img2} width="400" height="400"/>
                     <NavLink to = "/pp"><h1 className="titlepp">Slate</h1></NavLink>
-                    <div className = "main">
+                    <div className = "main2">
                         <div class = "profile">
                             <h1>Profile</h1>
                             <div className="settingsBox">

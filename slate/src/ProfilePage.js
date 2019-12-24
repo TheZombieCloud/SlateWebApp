@@ -8,7 +8,19 @@ class ProfilePage extends React.Component{
     constructor(props){
         super(props);
     }
+     handleSubmit() {
+        fetch('/logout', {
+              method: 'POST'
+        }).then(response => {
+            if (response.ok) {
+                localStorage.setItem('auth', 'false');
+                history.push('/');
 
+            } else {
+                history.push('/pp');
+            }
+        })
+    }
     render(){
         return(
             <div className = "container">
@@ -23,6 +35,7 @@ class ProfilePage extends React.Component{
                                 <button className="settingButton">Change Password</button>
                                 <button className="settingButton">Change Email</button>
                                 <button className="settingButton">Change Schedule</button>
+                                <button className="settingButton" onClick={this.handleSubmit}>Log Out</button>
                             </div>
                             <form className = "ppform">
                                 <div className = "search">
@@ -42,4 +55,3 @@ class ProfilePage extends React.Component{
 }
 
 export default ProfilePage;
-

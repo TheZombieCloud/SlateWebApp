@@ -65,15 +65,13 @@ svg {
 .profile {
     align: left;
     float: left;
-    width: 33%;
+    width: 100%;
     margin-top: 5ch;
     text-align: left;
     margin-left: 7vw;
 }
 
 .feed {
-    align: right;
-    float: right;
     margin-left: 10vw;
 }
 

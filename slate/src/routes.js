@@ -16,6 +16,14 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
   )} />
 )
 
+const PublicRoute = ({ component: Component, ...rest }) => (
+  <Route {...rest} render={(props) => (
+    localStorage.getItem('auth') === 'false'
+      ? <Component {...props} />
+      : <Redirect to='/login' />
+  )} />
+)
+
 class Routes extends React.Component {
 
     constructor(props){
@@ -26,9 +34,9 @@ class Routes extends React.Component {
         return (
             <div>
                 <Switch>
-                    <Route exact path="/" component={Splash}/>
-                    <Route exact path="/signup" component={Signup}/>
-                    <Route exact path="/login" component={Login}/>
+                    <PublicRoute exact path="/" component={Splash}/>
+                    <PublicRoute exact path="/signup" component={Signup}/>
+                    <PublicRoute exact path="/login" component={Login}/>
                     <PrivateRoute exact path="/schedule" component={Schedule}/>
                     <PrivateRoute exact path="/pp" component={ProfilePage}/>
                 </Switch>

@@ -67,7 +67,7 @@ class Login extends React.Component {
         return(
             <div class = "loginpage">
                 <div class = "slideCenterl">
-                    <img className="img2l" src={img2} width="400" height="400"/>
+                    <img className="img21" src={img2} width="400" height="400"/>
                     <div className="titlel1">
                         <NavLink to = "/"><h1 className="titlel2">Slate</h1></NavLink>
                         <h1 className = "titlel3">Welcome Back</h1>

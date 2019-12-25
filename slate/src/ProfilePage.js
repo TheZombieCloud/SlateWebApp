@@ -10,12 +10,16 @@ class ProfilePage extends React.Component{
          super(props);
          this.state = {
              active: false,
-             activemail: false
+             activemail: false,
+             friendname: ""
          };
          this.togglePopup = this.togglePopup.bind(this);
          this.togglePopupe = this.togglePopupe.bind(this);
+         this.handleChange=this.handleChange.bind(this);
      }
-
+    handleChange(event){
+        this.setState({[event.target.id]: event.target.value});
+    }
      togglePopup() {
          this.setState({
              active: !this.state.active
@@ -40,6 +44,29 @@ class ProfilePage extends React.Component{
              }
          })
      }
+     search(event) {
+        fetch('/login', {
+              method: 'POST',
+              headers: {
+              'Accept': 'application/json',
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                username: this.state.username,
+                password: this.state.password
+            })
+        }).then(response => {
+            if (response.ok) {
+                localStorage.setItem('auth', 'true');
+                history.push('/pp');
+                return response.json();
+            } else {
+                history.push('/login');
+                return response.json();
+            }
+        })
+        event.preventDefault();
+    }
      render(){
          return(
              <div>
@@ -59,7 +86,7 @@ class ProfilePage extends React.Component{
                                  <form className = "ppform">
                                      <div className = "search">
                                          <h6 className = "searchfrt">Search for Friends</h6>
-                                         <input className = "searchBar" type = "text" placeholder = "Search..."/>
+                                         <input className ="searchBar" id="friendname" type = "text" value={this.state.friendname} onChange = {this.search} placeholder = "Search..."/>
                                      </div>
                                  </form>
                              </div>

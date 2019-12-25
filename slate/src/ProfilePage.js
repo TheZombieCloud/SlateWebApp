@@ -53,7 +53,7 @@ class ProfilePage extends React.Component{
                                  <div className="settingsBox">
                                      <button className="settingButton" onClick = {this.togglePopup}>Change Password</button>
                                      <button className="settingButton" onClick = {this.togglePopupe}>Change Email</button>
-                                     <button className="settingButton">Change Schedule</button>
+                                     <NavLink to = "/schedule"><button className = "settingButton2">Change Schedule</button></NavLink>
                                      <button className="settingButton" onClick={this.handleSubmit}>Log Out</button>
                                  </div>
                                  <form className = "ppform">

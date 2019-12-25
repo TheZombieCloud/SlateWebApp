@@ -172,6 +172,11 @@ svg {
     cursor: pointer;
 }
 
+.changeSche {
+    width: 100%;
+    display: flex;
+}
+
 .match {
     margin-top: 2vh;
     font-size: 15px;

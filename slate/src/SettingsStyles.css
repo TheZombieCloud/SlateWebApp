@@ -16,5 +16,21 @@
     font-size: 25px;
     cursor: pointer;
     width: auto;
-
 }
+
+.settingButton2 {
+    display: block;
+    width: 100%;
+    margin: 0;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+    text-align: center;
+    margin-bottom: -1px;
+    background: transparent;
+    box-shadow: none;
+    border: solid #fa9038 1px;
+    color: #fa9038;
+    font-size: 25px;
+    cursor: pointer;
+}
+

@@ -84,6 +84,26 @@ def signup():
     })
     return "successful", 200
 
+@app.route ('/password', methods=['POST'])
+def changePassword():
+    data = request.get_json()
+    username = session['username']
+    password = data['password']
+    ref.child(username).update({
+        'password': password
+    })
+    return "successful", 200
+
+@app.route ('/email', methods=['POST'])
+def changeEmail():
+    data = request.get_json()
+    username = session['username']
+    email = data['email']
+    ref.child(username).update({
+        'email': email
+    })
+    return "successful", 200
+
 if __name__ == '__main__':
     app.run()
 

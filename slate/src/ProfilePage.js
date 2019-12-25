@@ -45,24 +45,20 @@ class ProfilePage extends React.Component{
          })
      }
      search(event) {
-        fetch('/login', {
-              method: 'POST',
+        fetch('/findfriend', {
+              method: 'GET',
               headers: {
               'Accept': 'application/json',
               'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                username: this.state.username,
-                password: this.state.password
+                friendname: this.state.friendname,
             })
         }).then(response => {
             if (response.ok) {
-                localStorage.setItem('auth', 'true');
-                history.push('/pp');
-                return response.json();
+                //print the list
             } else {
-                history.push('/login');
-                return response.json();
+               //do it again
             }
         })
         event.preventDefault();

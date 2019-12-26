@@ -106,10 +106,10 @@ def changeEmail():
 
 
 
-@app.route('/findfriend',methods=['GET'])
-def findfriend():
-    data=request.get_json()
-    friendname=data['friendname']
+@app.route('/find',methods=['POST'])
+def find():
+    data = request.get_json()
+    friendname = data['fn']
     limit = len(friendname)//2+1;
     listofchildren=ref.order_by_child("username") #this is the list of people
     RUTA=[]
@@ -122,7 +122,7 @@ def findfriend():
                 RUTA.append(current)
                 print(current)
     if not RUTA:
-        return RUTA, 400 #nothing is found
+        return RUTA, 200 #nothing is found
     return RUTA,200
 
 

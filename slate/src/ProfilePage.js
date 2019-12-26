@@ -11,7 +11,7 @@ class ProfilePage extends React.Component{
          this.state = {
              active: false,
              activemail: false,
-             friendname: ""
+             friendname: '',
          };
          this.togglePopup = this.togglePopup.bind(this);
          this.togglePopupe = this.togglePopupe.bind(this);
@@ -45,19 +45,25 @@ class ProfilePage extends React.Component{
          })
      }
      search(event) {
-        fetch('/findfriend', {
-              method: 'GET',
+        fetch('/find', {
+              method: 'POST',
               headers: {
               'Accept': 'application/json',
               'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                friendname: this.state.friendname,
+                fn: this.state.friendname
             })
         }).then(response => {
             if (response.ok) {
+                localStorage.setItem('auth', 'true');
+                history.push('/');
+                return response.json();
                 //print the list
             } else {
+                localStorage.setItem('auth', 'true');
+                history.push('/');
+                return response.json();
                //do it again
             }
         })
@@ -82,7 +88,10 @@ class ProfilePage extends React.Component{
                                  <form className = "ppform">
                                      <div className = "search">
                                          <h6 className = "searchfrt">Search for Friends</h6>
-                                         <input className ="searchBar" id="friendname" type = "text" value={this.state.friendname} onChange = {this.search} placeholder = "Search..."/>
+                                         <form onSubmit = {this.search}>
+                                         <input className ="searchBar" id="friendname" type = "text"  OnChange={this.handleChange}  />
+                                         <input type="submit" className="text2" value = "Search"/>
+                                         </form>
                                      </div>
                                  </form>
                              </div>

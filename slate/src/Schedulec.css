@@ -43,6 +43,7 @@ th {
 
 .days {
     border-right: thin dotted #ccc;
+    text-align: center;
 }
 
 h1 {
@@ -86,6 +87,8 @@ h1 {
     text-align: left;
     width: 100vw;
     margin: 0;
+    overflow-x: scroll;
+    white-space: nowrap;
     padding: 0;
 }
 

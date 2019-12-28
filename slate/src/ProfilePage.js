@@ -88,10 +88,7 @@ class ProfilePage extends React.Component{
                                  <form className = "ppform">
                                      <div className = "search">
                                          <h6 className = "searchfrt">Search for Friends</h6>
-                                         <form onSubmit = {this.search}>
-                                         <input className ="searchBar" id="friendname" type = "text"  OnChange={this.handleChange}  />
-                                         <input type="submit" className="text2" value = "Search"/>
-                                         </form>
+                                         <input className ="searchBar" id="friendname" type = "text" value={this.state.friendname} onChange = {this.search} placeholder = "Search..."/>
                                      </div>
                                  </form>
                              </div>

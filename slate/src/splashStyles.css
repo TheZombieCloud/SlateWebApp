@@ -22,6 +22,7 @@ body {
 }
 
 .img2 {
+    pointer-events: none;
     position: fixed;
     margin: 0;
     padding: 0;

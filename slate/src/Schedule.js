@@ -2,6 +2,8 @@ import React from 'react';
 import AddScheduleBlock from "./AddScheduleBlock";
 import ReactDOM from 'react-dom';
 import './Schedulec.css';
+import img2 from "./RightTopimg.svg";
+import {NavLink} from "react-router-dom";
 
 class ScheduleBlock {
     constructor(name, duration, start, end, day) {
@@ -230,21 +232,22 @@ class Schedule extends React.Component {
         }*/
         return(
             <div>
-                <br/><br/><br/><br/>
-                <table>
-                    <tr>
-                        <td colspan = "3" class = "ftd">
-                            <div class = "rdiv">
-                                <table>
-                                    {format}
-                                </table>
-                            </div>
-                        </td>
-                        <td class = "AddSchedule">
-                            <AddScheduleBlock action={this.handler}/>
-                        </td>
-                    </tr>
-                </table>
+                <div className = "scheduleout">
+                     <div className = "schedulein">
+                         <img className="img2s" src={img2} width="400" height="400"/>
+                         <NavLink to = "/pp"><h1 className="titless">Slate</h1></NavLink>
+                         <div className = "AddSchedule">
+                             <div className = "add">
+                                <AddScheduleBlock className = "AddSchedule2" action={this.handler}/>
+                             </div>
+                             <div class = "rdiv">
+                                 <table>
+                                     {format}
+                                 </table>
+                             </div>
+                         </div>
+                     </div>
+                </div>
             </div>
         );
     }

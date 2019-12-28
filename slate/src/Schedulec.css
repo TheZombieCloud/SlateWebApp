@@ -49,14 +49,10 @@ h1 {
     font-family: Avenir;
 }
 
-.input {
-    border: solid #707070 1px;
-    border-radius: 0.2rem;
-    padding: 1rem;
-    margin: 3px;
-}
-
 .AddSchedule {
+    display: flex;
+    height: max-content;
+    flex-direction: row;
     vertical-align: top;
     horizontal-align: center;
 }
@@ -71,7 +67,7 @@ h1 {
 .rdiv {
     border: darkgray solid;
     border-width: 1px;
-    margin-left: 4vw;
+    margin-left: 8vw;
     margin-bottom: 4vw;
     margin-top: 10px;
     box-shadow: 5px 5px 0px grey;
@@ -85,3 +81,89 @@ h1 {
 .d {background-color: #B3E5FC;}
 .e {background-color: #81D4FA;}
 .f {background-color: #26C6DA;}
+
+.scheduleout {
+    text-align: left;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+}
+
+.schedulein {
+    height: 100vh;
+    /*
+    border-radius: 5px;
+    border-style: solid;
+    border-color: black;
+    border-width: 5px;
+    */
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    color: #343434;
+    font-weight: bold;
+    font-size: 3em;
+}
+
+.img2s {
+    pointer-events: none;
+    position: fixed;
+    margin: 0;
+    padding: 0;
+}
+
+.titless {
+    margin-top: 0.8ch;
+    color: #fa9038;
+    font-size: 40px;
+    position: fixed;
+    margin-left: 2vw;
+}
+
+.add {
+    margin-top: 25vh;
+    margin-left: 5vw;
+    font-size: 30px;
+    color: #fa9038;
+}
+
+.firstbox {
+    border: solid #fa9038 1px;
+}
+
+.secondaryBox {
+    border: solid #fa9038 1px;
+    margin-top: -1px;
+}
+
+.inputtext2 {
+    margin: 0;
+    padding: 0;
+    margin-top: 2vh;
+    margin-left: 1vw;
+    font-size: 15px;
+    color: #fa9038;
+}
+
+.inputfield2 {
+    margin: 0px;
+    margin-top: 2vh;
+    margin-bottom: 1vh;
+    color: #fa9038;
+    border: none;
+    margin-left: 1vw;
+    width: 80%;
+}
+
+.text4 {
+    margin: 0;
+    text-align: center;
+    margin-top: 5vh;
+    margin-bottom: 1vh;
+    background: transparent;
+    box-shadow: none;
+    border: solid #fa9038 1px;
+    color: #fa9038;
+    font-size: 25px;
+    cursor: pointer;
+}

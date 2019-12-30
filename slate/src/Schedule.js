@@ -16,7 +16,7 @@ class Schedule extends React.Component {
 
     constructor(props){
         super(props);
-        this.state = {timetable: [], name: "begin"};
+        this.state = {timetable: [], name: "begin", isCollision: false};
         for (var i = 0;i<144;i++){
             this.state.timetable[i] = [];
             for (var c = 0;c<7;c++){
@@ -32,6 +32,7 @@ class Schedule extends React.Component {
 
     handler(name, start, end, day){
         //this.state.name = name;
+        this.state.isCollision = false;
         var arr = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
         for (var i = 0;i<7;i++){
             if (arr[i]==day){
@@ -57,12 +58,16 @@ class Schedule extends React.Component {
         }
         var duration = (parseInt(end2[0])-parseInt(start2[0]))*60+parseInt(end3[0])-parseInt(start3[0]);
         this.state.name = end2[0];
-        Schedule.addScheduleBlock(new ScheduleBlock(name, duration, start, end, parseInt(day)));
+        var add = Schedule.addScheduleBlock(new ScheduleBlock(name, duration, start, end, parseInt(day)));
+        if (add){
+            this.state.isCollision = true;
+        }
         this.state.timetable = Schedule.addTimeTable();
         this.forceUpdate();
     }
 
     handler2(name, start, end, day){
+        this.state.isCollision = false;
         //this.state.name = name;
         var arr = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
         for (var i = 0;i<7;i++){
@@ -96,7 +101,22 @@ class Schedule extends React.Component {
 
     static addScheduleBlock(block){
         //Retrieves schedule blocks from Database and then adds new block
+        for (var i = 0;i<this.blocks.length;i++){
+            var start = this.blocks[i].state.start;
+            var end = this.blocks[i].state.end;
+            var day = this.blocks[i].state.day;
+            if (block.state.day===day){
+                if ((block.state.start<end&&block.state.start>start)||(block.state.end<end&&block.state.end>start)||(block.state.start===start&&block.state.end===end)){
+                    return true;
+                    break;
+                }
+            }
+        }
+        if (block.state.start>=block.state.end){
+            return true;
+        }
         this.blocks.push(block);
+        return false;
     }
 
     static removeScheduleBlock(block){
@@ -292,6 +312,7 @@ class Schedule extends React.Component {
                          <div className = "AddSchedule">
                              <div className = "add">
                                 <AddScheduleBlock className = "AddSchedule2" action={this.handler} remove={this.handler2}/>
+                                 {this.state.isCollision ? <p className="text5">Your entry couldn't be added</p>: null}
                              </div>
                              <div class = "rdiv">
                                  <table>

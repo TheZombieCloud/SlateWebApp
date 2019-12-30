@@ -170,3 +170,17 @@ h1 {
     font-size: 25px;
     cursor: pointer;
 }
+
+.text4b {
+    margin: 0;
+    text-align: center;
+    margin-top: 5vh;
+    margin-bottom: 1vh;
+    margin-left: 2vw;
+    background: transparent;
+    box-shadow: none;
+    border: solid #fa9038 1px;
+    color: #fa9038;
+    font-size: 25px;
+    cursor: pointer;
+}

@@ -24,9 +24,10 @@ class Schedule extends React.Component {
             }
         }
         this.handler = this.handler.bind(this);
+        this.handler2 = this.handler2.bind(this);
         //Schedule.addScheduleBlock(new ScheduleBlock("SE101", 100, "1:00","2:40", 1));
         //Schedule.addScheduleBlock(new ScheduleBlock("SE101", 100, "1:00","2:40", 4));
-        this.state.timetable = Schedule.addTimeTable(this.state.timetable);
+        this.state.timetable = Schedule.addTimeTable();
     }
 
     handler(name, start, end, day){
@@ -57,7 +58,39 @@ class Schedule extends React.Component {
         var duration = (parseInt(end2[0])-parseInt(start2[0]))*60+parseInt(end3[0])-parseInt(start3[0]);
         this.state.name = end2[0];
         Schedule.addScheduleBlock(new ScheduleBlock(name, duration, start, end, parseInt(day)));
-        this.state.timetable = Schedule.addTimeTable(this.state.timetable);
+        this.state.timetable = Schedule.addTimeTable();
+        this.forceUpdate();
+    }
+
+    handler2(name, start, end, day){
+        //this.state.name = name;
+        var arr = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+        for (var i = 0;i<7;i++){
+            if (arr[i]==day){
+                day = i;
+                break;
+            }
+        }
+        var start2 = start.split(":");
+        var start3 = start2[1].split(" ");
+        var end2 = end.split(":");
+        var end3 = end2[1].split(" ");
+        if (start3[1]=="AM"&&start2[0]=="12"){
+            start2[0] = 0;
+        }
+        if (start3[1]=="PM"&&start2[0]!="12"){
+            start2[0] = parseInt(start2[0])+12;
+        }
+        if (end3[1]=="AM"&&end2[0]=="12"){
+            end2[0] = 0;
+        }
+        if (end3[1]=="PM"&&end2[0]!="12"){
+            end2[0] = parseInt(end2[0])+12;
+        }
+        var duration = (parseInt(end2[0])-parseInt(start2[0]))*60+parseInt(end3[0])-parseInt(start3[0]);
+        this.state.name = end2[0];
+        Schedule.removeScheduleBlock(new ScheduleBlock(name, duration, start, end, parseInt(day)));
+        this.state.timetable = Schedule.addTimeTable();
         this.forceUpdate();
     }
 
@@ -66,7 +99,27 @@ class Schedule extends React.Component {
         this.blocks.push(block);
     }
 
-    static addTimeTable(timetable){
+    static removeScheduleBlock(block){
+        for (var i = 0;i<this.blocks.length;i++){
+            var name = this.blocks[i].state.name;
+            var start = this.blocks[i].state.start;
+            var end = this.blocks[i].state.end;
+            var day = this.blocks[i].state.day;
+            if (name===block.state.name&&start===block.state.start&&end===block.state.end&&day==block.state.day){
+                this.blocks.splice(i, 1);
+                break;
+            }
+        }
+    }
+
+    static addTimeTable(){
+        var timetable = [];
+        for (var i = 0;i<144;i++){
+            timetable[i] = [];
+            for (var c = 0;c<7;c++){
+                timetable[i][c] = "0";
+            }
+        }
         for (var i = 0;i<this.blocks.length;i++){
             var name = this.blocks[i].state.name;
             var duration = this.blocks[i].state.duration;
@@ -238,7 +291,7 @@ class Schedule extends React.Component {
                          <NavLink to = "/pp"><h1 className="titless">Slate</h1></NavLink>
                          <div className = "AddSchedule">
                              <div className = "add">
-                                <AddScheduleBlock className = "AddSchedule2" action={this.handler}/>
+                                <AddScheduleBlock className = "AddSchedule2" action={this.handler} remove={this.handler2}/>
                              </div>
                              <div class = "rdiv">
                                  <table>

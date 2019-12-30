@@ -104,8 +104,6 @@ def changeEmail():
     })
     return "successful", 200
 
-
-
 @app.route('/find',methods=['POST'])
 def find():
     data = request.get_json()

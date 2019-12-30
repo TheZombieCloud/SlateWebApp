@@ -13,6 +13,7 @@ class AddScheduleBlock extends React.Component {
         this.changeEnd = this.changeEnd.bind(this);
         this.changeDay = this.changeDay.bind(this);
         this.Submit = this.Submit.bind(this);
+        this.Remove = this.Remove.bind(this);
     }
 
     changeName(e){
@@ -34,6 +35,11 @@ class AddScheduleBlock extends React.Component {
     Submit(e){
         e.preventDefault();
         this.props.action(this.state.name, this.state.start, this.state.end, this.state.day);
+    }
+
+    Remove(e){
+        e.preventDefault();
+        this.props.remove(this.state.name, this.state.start, this.state.end, this.state.day);
     }
 
     render(){
@@ -58,6 +64,7 @@ class AddScheduleBlock extends React.Component {
                         <input class = "inputfield2" placeholder = "(Monday, Tuesday...)" type = "text" value = {this.state.day} onChange = {this.changeDay}/>\
                     </div>
                     <input class = "text4" type = "submit" value = "Submit"/>
+                    <button class = "text4b" onClick={this.Remove}>Remove</button>
                 </form>
             </div>
         );

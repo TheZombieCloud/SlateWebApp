@@ -16,6 +16,7 @@ class ProfilePage extends React.Component{
          this.togglePopup = this.togglePopup.bind(this);
          this.togglePopupe = this.togglePopupe.bind(this);
          this.handleChange=this.handleChange.bind(this);
+         this.handleSubmit = this.handleSubmit.bind(this);
      }
     handleChange(event){
         this.setState({[event.target.id]: event.target.value});
@@ -32,8 +33,8 @@ class ProfilePage extends React.Component{
          });
      }
 
-     handleSubmit() {
-         fetch('/logout', {
+     logout() {
+         fetch('/logou', {
              method: 'POST'
          }).then(response => {
              if (response.ok) {
@@ -44,7 +45,7 @@ class ProfilePage extends React.Component{
              }
          })
      }
-     search(event) {
+     handleSubmit(event) {
         fetch('/find', {
               method: 'POST',
               headers: {
@@ -67,7 +68,7 @@ class ProfilePage extends React.Component{
                //do it again
             }
         })
-        event.preventDefault();
+
     }
      render(){
          return(
@@ -83,13 +84,16 @@ class ProfilePage extends React.Component{
                                      <button className="settingButton" onClick = {this.togglePopup}>Change Password</button>
                                      <button className="settingButton" onClick = {this.togglePopupe}>Change Email</button>
                                      <NavLink to = "/schedule"><button className = "settingButton2">Change Schedule</button></NavLink>
-                                     <button className="settingButton" onClick={this.handleSubmit}>Log Out</button>
+                                     <button className="settingButton" onClick={this.logout}>Log Out</button>
                                  </div>
                                  <form className = "ppform">
                                      <div className = "search">
+                                         <form onSubmit = {this.search}>
                                          <h6 className = "searchfrt">Search for Friends</h6>
-                                         <input className ="searchBar" id="friendname" type = "text" value={this.state.friendname} onChange = {this.handleChange} placeholder = "Search..."/>
-                                     </div>
+                                         <input className ="searchBar" id="friendname" type = "text" value={this.state.friendname} onChange={this.handleChange} placeholder = "Search..."/>
+                                         <input type = "submit"  value = "search"/>
+                                         </form>
+                                         </div>
                                  </form>
                              </div>
                              <div class = "feed">

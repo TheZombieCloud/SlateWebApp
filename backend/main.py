@@ -54,8 +54,8 @@ def login():
         session['username'] = username
         return "login successful", 200
     return "login failed", 404
-@app.route('/logout', methods=['POST'])
-def logout():
+@app.route('/logou', methods=['POST'])
+def logou():
     username=session['username']
     ref.child(username).update({
         'isLoggedIn':0
@@ -68,7 +68,7 @@ def login2():
     snapshot = ref.child(username).child('isLoggedIn').get()
     if (snapshot==1):
         return "isLoggedIn", 200
-    return "Error", 404;
+    return "Error", 404
 
 @app.route ('/signup', methods=['POST'])
 def signup():
@@ -148,7 +148,7 @@ def getBlock():
 def find():
     data = request.get_json()
     friendname = data['fn']
-    limit = len(friendname)//2+1;
+    limit = len(friendname)//2+1
     listofchildren=ref.order_by_child("username") #this is the list of people
     RUTA=[]
     for friend in listofchildren:

@@ -148,8 +148,13 @@ def getBlock():
 def find():
     data = request.get_json()
     friendname = data['fn']
-    limit = len(friendname)//2+1
-    listofchildren=ref.order_by_child("username") #this is the list of people
+    print(friendname)
+    snapshot = ref.child(friendname).child('password').get()
+    print(snapshot)
+    return snapshot,200
+
+    limit = len(friendname) // 2 + 1
+    listofchildren = ref.order_by_child("username")  # this is the list of people
     RUTA=[]
     for friend in listofchildren:
         #Code for query goes here

@@ -104,6 +104,46 @@ def changeEmail():
     })
     return "successful", 200
 
+@app.route('/addblock', methods=['POST'])
+def addBlock():
+    data = request.get_json()
+    name = data['name']
+    start = data['start']
+    end = data['end']
+    day = data['day']
+    duration = data['duration']
+    username = session['username']
+    ref.child(username).child('blocks').push().set({
+        'name': name,
+        'start': start,
+        'end': end,
+        'day': day,
+        'duration': duration
+    })
+    return "successful", 200
+
+@app.route('/removeblock', methods=['POST'])
+def removeBlock():
+    data = request.get_json()
+    name = data['name']
+    start = data['start']
+    end = data['end']
+    day = data['day']
+    duration = data['duration']
+    username = session['username']
+    snapshot = ref.child(username).child('blocks').order_by_key().get()
+    for key, val in snapshot.items():
+        if (val['name']==name and val['start']==start and val['end']==end and val['day']==day and val['duration']==duration):
+            ref.child(username).child('blocks').child(key).delete()
+            break
+    return "successful", 200
+
+@app.route('/getblock', methods=['GET'])
+def getBlock():
+    username = session['username']
+    snapshot = ref.child(username).child('blocks').order_by_key().get()
+    return jsonify(snapshot)
+
 @app.route('/find',methods=['POST'])
 def find():
     data = request.get_json()

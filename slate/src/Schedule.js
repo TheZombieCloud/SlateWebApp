@@ -25,14 +25,37 @@ class Schedule extends React.Component {
         }
         this.handler = this.handler.bind(this);
         this.handler2 = this.handler2.bind(this);
+        fetch('/getblock', {
+            method: 'GET',
+        }). then(response => {
+            return response.json()
+        }). then(data=>{
+            Schedule.blocks = [];
+            for (var i in data){
+                //throw new Error(data[i].name);
+                //throw new Error("ree");
+                var name = data[i].name;
+                var start = data[i].start;
+                var end = data[i].end;
+                var duration = data[i].duration;
+                var day = data[i].day;
+                Schedule.blocks.push(new ScheduleBlock(name, duration, start, end, day));
+            }
+            this.state.timetable = Schedule.addTimeTable();
+            this.forceUpdate();
+        })
         //Schedule.addScheduleBlock(new ScheduleBlock("SE101", 100, "1:00","2:40", 1));
         //Schedule.addScheduleBlock(new ScheduleBlock("SE101", 100, "1:00","2:40", 4));
-        this.state.timetable = Schedule.addTimeTable();
     }
 
     handler(name, start, end, day){
         //this.state.name = name;
         this.state.isCollision = false;
+        if (name===""||start===""||end===""||day===""){
+            this.state.isCollision = true;
+            this.forceUpdate();
+            return;
+        }
         var arr = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
         for (var i = 0;i<7;i++){
             if (arr[i]==day){
@@ -68,6 +91,11 @@ class Schedule extends React.Component {
 
     handler2(name, start, end, day){
         this.state.isCollision = false;
+        if (name===""||start===""||end===""||day===""){
+            this.state.isCollision = true;
+            this.forceUpdate();
+            return;
+        }
         //this.state.name = name;
         var arr = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
         for (var i = 0;i<7;i++){
@@ -95,8 +123,25 @@ class Schedule extends React.Component {
         var duration = (parseInt(end2[0])-parseInt(start2[0]))*60+parseInt(end3[0])-parseInt(start3[0]);
         this.state.name = end2[0];
         Schedule.removeScheduleBlock(new ScheduleBlock(name, duration, start, end, parseInt(day)));
-        this.state.timetable = Schedule.addTimeTable();
-        this.forceUpdate();
+        fetch('/removeblock', {
+            method: 'POST',
+            headers: {
+              'Accept': 'application/json',
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                name: name,
+                start: start,
+                end: end,
+                day: parseInt(day),
+                duration: duration
+            })
+        }).then(response =>{
+            if (response.ok) {
+                this.state.timetable = Schedule.addTimeTable();
+                this.forceUpdate();
+            }
+        })
     }
 
     static addScheduleBlock(block){
@@ -116,6 +161,20 @@ class Schedule extends React.Component {
             return true;
         }
         this.blocks.push(block);
+        fetch('/addblock', {
+            method: 'POST',
+            headers: {
+              'Accept': 'application/json',
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                name: block.state.name,
+                start: block.state.start,
+                end: block.state.end,
+                day: block.state.day,
+                duration: block.state.duration
+            })
+        })
         return false;
     }
 

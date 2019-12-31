@@ -151,22 +151,22 @@ def find():
     print(friendname)
     snapshot = ref.child(friendname).child('password').get()
     print(snapshot)
-    return snapshot,200
-
     limit = len(friendname) // 2 + 1
-    listofchildren = ref.order_by_child("username")  # this is the list of people
-    RUTA=[]
+    listofchildren = ref.order_by_child("username").get() # this is the list of people
+    best=""
+    cor=0
     for friend in listofchildren:
         #Code for query goes here
-        current =friend.child("username").get()
+        current =friend
         for i in range(0,min(len (friendname), len(current))):
             k=lcs(friendname,current)
-            if(k >= limit):
-                RUTA.append(current)
-                print(current)
-    if not RUTA:
-        return RUTA, 200 #nothing is found
-    return RUTA,200
+            if(k >= cor):
+                best=current
+                cor=k
+    print(best)
+    if not best:
+        return best, 200 #nothing is found
+    return best,200
 
 
 def lcs(X, Y):

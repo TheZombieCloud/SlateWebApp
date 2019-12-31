@@ -58,12 +58,12 @@ class ProfilePage extends React.Component{
         }).then(response => {
             if (response.ok) {
                 localStorage.setItem('auth', 'true');
-                history.push('/');
+                history.push('/pp');
                 return response.json();
                 //print the list
             } else {
                 localStorage.setItem('auth', 'true');
-                history.push('/');
+                history.push('/pp');
                 return response.json();
                //do it again
             }

@@ -13,18 +13,26 @@ class ProfilePage extends React.Component{
              active: false,
              activemail: false,
              friendname: '',
-             added: '-1'
+             added: '-1',
+             removed: '-1'
          };
          this.togglePopup = this.togglePopup.bind(this);
          this.togglePopupe = this.togglePopupe.bind(this);
          this.togglePopupf = this.togglePopupf.bind(this);
+         this.togglePopupu = this.togglePopupu.bind(this);
          this.handleChange=this.handleChange.bind(this);
          this.handleSubmit = this.handleSubmit.bind(this);
+         this.handleUnfriend = this.handleUnfriend.bind(this);
          this.getAdded = this.getAdded.bind(this);
+         this.getRemoved = this.getRemoved.bind(this);
      }
 
      getAdded(){
         return this.state.added;
+     }
+
+     getRemoved(){
+         return this.state.removed;
      }
 
      handleChange(event){
@@ -46,6 +54,12 @@ class ProfilePage extends React.Component{
      togglePopupf() {
          this.setState({
              added: '-1'
+         })
+     }
+
+     togglePopupu() {
+         this.setState({
+             removed: '-1'
          })
      }
 
@@ -97,6 +111,35 @@ class ProfilePage extends React.Component{
          event.preventDefault();
      }
 
+     handleUnfriend(event) {
+         fetch('/unfriend', {
+             method: 'POST',
+             headers: {
+               'Accept': 'application/json',
+               'Content-Type': 'application/json'
+             },
+             body: JSON.stringify({
+                 fn: this.state.friendname
+             })
+         }).then(response => {
+             return response.json();
+         }).then(data=>{
+             if (data===''){
+                 this.setState({
+                     removed: "You are not friends"
+                 })
+                 //this.state.added = "No users found";
+             }
+             else {
+                 this.setState({
+                     removed: "Unfriended " + data
+                 })
+                 //this.state.added = "Added " + data;
+             }
+         })
+         event.preventDefault();
+     }
+
      render(){
          return(
              <div>
@@ -118,7 +161,14 @@ class ProfilePage extends React.Component{
                                          <h6 className = "searchfrt">Search for Friends</h6>
                                          <input className ="searchBar" id="friendname" type = "text" value={this.state.friendname} onChange={this.handleChange} placeholder = "Search..."/>
                                      </div>
-                                     <input type = "submit"  className = "settingButton3" value = "Search"/>
+                                     <div className = "friendbuttons">
+                                         <div>
+                                             <input type = "submit"  className = "settingButton3" value = "Search"/>
+                                         </div>
+                                         <div>
+                                             <button className = "settingButton4" onClick={this.handleUnfriend}>Unfriend</button>
+                                         </div>
+                                     </div>
                                  </form>
                              </div>
                              <div class = "feed">
@@ -130,6 +180,7 @@ class ProfilePage extends React.Component{
                  {this.state.active ? <Popup toggle = {this.togglePopup}></Popup>: null}
                  {this.state.activemail ? <PopupEmail toggle = {this.togglePopupe}></PopupEmail>: null}
                  {this.state.added!=="-1" ?  <PopupFriend string = {this.getAdded} toggle = {this.togglePopupf}></PopupFriend>: null}
+                 {this.state.removed!=="-1" ? <PopupUnfriend string = {this.getRemoved} toggle = {this.togglePopupu}></PopupUnfriend>: null}
              </div>
          );
      }
@@ -295,6 +346,30 @@ class PopupFriend extends React.Component {
                 <div className = "content2">
                     <span className = "close" onClick = {this.handleClick}>&times;</span>
                     <p className = "bigtext">Add Friend</p>
+                    <p className = "smalltext">{this.props.string()}</p>
+                </div>
+            </div>
+        );
+    }
+}
+
+class PopupUnfriend extends React.Component {
+
+    constructor(props){
+        super(props);
+        this.handleClick = this.handleClick.bind(this);
+    }
+
+    handleClick() {
+        this.props.toggle();
+    }
+
+    render() {
+        return (
+            <div className = "modal">
+                <div className = "content2">
+                    <span className = "close" onClick = {this.handleClick}>&times;</span>
+                    <p className = "bigtext">Remove Friend</p>
                     <p className = "smalltext">{this.props.string()}</p>
                 </div>
             </div>

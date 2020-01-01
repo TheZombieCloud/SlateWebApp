@@ -163,9 +163,10 @@ def find():
             cor = k
     #print(best)
     snapshot = ref.child(username).child('friends').order_by_key().get()
-    for key, val in snapshot.items():
-        if val['name'] == best:
-            return jsonify('added')
+    if snapshot is not None:
+        for key, val in snapshot.items():
+            if val['name'] == best:
+                return jsonify('added')
     if not best or best == username:
         return jsonify('')  # nothing is found
     ref.child(username).child('friends').push().set({
@@ -173,6 +174,18 @@ def find():
     })
     return jsonify(best)
 
+@app.route('/unfriend', methods=['POST'])
+def unfriend():
+    data = request.get_json()
+    username = session['username']
+    friendname = data['fn']
+    snapshot = ref.child(username).child('friends').order_by_key().get()
+    if snapshot is not None:
+        for key, val in snapshot.items():
+            if val['name'] == friendname:
+                ref.child(username).child('friends').child(key).delete()
+                return jsonify(friendname)
+    return jsonify('')
 
 def lcs(X, Y):
     # find the length of the strings

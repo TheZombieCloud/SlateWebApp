@@ -199,3 +199,8 @@ svg {
     font-size: 15px;
     color: #fa9038;
 }
+
+.friendbuttons {
+    display: flex;
+    flex-direction: row;
+}

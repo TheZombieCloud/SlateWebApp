@@ -6,21 +6,31 @@ import history from "./history.js";
 import {NavLink} from "react-router-dom";
 
 class ProfilePage extends React.Component{
+
      constructor(props){
          super(props);
          this.state = {
              active: false,
              activemail: false,
              friendname: '',
+             added: '-1'
          };
          this.togglePopup = this.togglePopup.bind(this);
          this.togglePopupe = this.togglePopupe.bind(this);
+         this.togglePopupf = this.togglePopupf.bind(this);
          this.handleChange=this.handleChange.bind(this);
          this.handleSubmit = this.handleSubmit.bind(this);
+         this.getAdded = this.getAdded.bind(this);
      }
-    handleChange(event){
-        this.setState({[event.target.id]: event.target.value});
-    }
+
+     getAdded(){
+        return this.state.added;
+     }
+
+     handleChange(event){
+         this.setState({[event.target.id]: event.target.value});
+     }
+
      togglePopup() {
          this.setState({
              active: !this.state.active
@@ -33,8 +43,14 @@ class ProfilePage extends React.Component{
          });
      }
 
+     togglePopupf() {
+         this.setState({
+             added: '-1'
+         })
+     }
+
      logout() {
-         fetch('/logou', {
+         fetch('/logout', {
              method: 'POST'
          }).then(response => {
              if (response.ok) {
@@ -45,31 +61,42 @@ class ProfilePage extends React.Component{
              }
          })
      }
-     handleSubmit(event) {
-        fetch('/find', {
-              method: 'POST',
-              headers: {
-              'Accept': 'application/json',
-              'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                fn: this.state.friendname
-            })
-        }).then(response => {
-            if (response.ok) {
-                localStorage.setItem('auth', 'true');
-                history.push('/pp');
-                return response.json();
-                //print the list
-            } else {
-                localStorage.setItem('auth', 'true');
-                history.push('/pp');
-                return response.json();
-               //do it again
-            }
-        })
 
-    }
+     handleSubmit(event) {
+         fetch('/find', {
+             method: 'POST',
+             headers: {
+               'Accept': 'application/json',
+               'Content-Type': 'application/json'
+             },
+             body: JSON.stringify({
+                 fn: this.state.friendname
+             })
+         }).then(response => {
+             return response.json();
+         }).then(data=>{
+             if (data===''){
+                 this.setState({
+                     added: "No users found"
+                 })
+                 //this.state.added = "No users found";
+             }
+             else if (data==='added'){
+                 this.setState({
+                     added: "Friend already added"
+                 })
+                 //this.state.added = "Friend already added";
+             }
+             else {
+                 this.setState({
+                     added: "Added " + data
+                 })
+                 //this.state.added = "Added " + data;
+             }
+         })
+         event.preventDefault();
+     }
+
      render(){
          return(
              <div>
@@ -86,14 +113,12 @@ class ProfilePage extends React.Component{
                                      <NavLink to = "/schedule"><button className = "settingButton2">Change Schedule</button></NavLink>
                                      <button className="settingButton" onClick={this.logout}>Log Out</button>
                                  </div>
-                                 <form className = "ppform">
+                                 <form className = "ppform" onSubmit = {this.handleSubmit}>
                                      <div className = "search">
-                                         <form onSubmit = {this.handleSubmit}>
                                          <h6 className = "searchfrt">Search for Friends</h6>
                                          <input className ="searchBar" id="friendname" type = "text" value={this.state.friendname} onChange={this.handleChange} placeholder = "Search..."/>
-                                         <input type = "submit"  value = "search"/>
-                                         </form>
-                                         </div>
+                                     </div>
+                                     <input type = "submit"  className = "settingButton3" value = "Search"/>
                                  </form>
                              </div>
                              <div class = "feed">
@@ -104,9 +129,11 @@ class ProfilePage extends React.Component{
                  </div>
                  {this.state.active ? <Popup toggle = {this.togglePopup}></Popup>: null}
                  {this.state.activemail ? <PopupEmail toggle = {this.togglePopupe}></PopupEmail>: null}
+                 {this.state.added!=="-1" ?  <PopupFriend string = {this.getAdded} toggle = {this.togglePopupf}></PopupFriend>: null}
              </div>
          );
      }
+
 }
 
 class Popup extends React.Component {
@@ -245,6 +272,30 @@ class PopupEmail extends React.Component {
                         <input type = "submit" className = "textpop" value = "Update"/>
                     </form>
                     {this.state.wrong ? <h1 className = "match">Your emails do not match</h1> : null}
+                </div>
+            </div>
+        );
+    }
+}
+
+class PopupFriend extends React.Component {
+
+    constructor(props){
+        super(props);
+        this.handleClick = this.handleClick.bind(this);
+    }
+
+    handleClick() {
+        this.props.toggle();
+    }
+
+    render() {
+        return (
+            <div className = "modal">
+                <div className = "content2">
+                    <span className = "close" onClick = {this.handleClick}>&times;</span>
+                    <p className = "bigtext">Add Friend</p>
+                    <p className = "smalltext">{this.props.string()}</p>
                 </div>
             </div>
         );

@@ -130,6 +130,17 @@ svg {
     border: 1px solid #fa9038;
 }
 
+.content2 {
+    background-color: white;
+    position: absolute;
+    top: 35%;
+    left: 40%;
+    width: 20%;
+    height: 30%;
+    padding: 20px;
+    border: 1px solid #fa9038;
+}
+
 .close {
     color: #fa9038;
     float: right;
@@ -138,6 +149,12 @@ svg {
 .bigtext {
     color: #fa9038;
     font-size: 30px;
+}
+
+.smalltext {
+    color: #fa9038;
+    font-size: 20px;
+    margin-top: 7vh;
 }
 
 .search2 {

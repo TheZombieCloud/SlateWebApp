@@ -54,8 +54,8 @@ def login():
         session['username'] = username
         return "login successful", 200
     return "login failed", 404
-@app.route('/logou', methods=['POST'])
-def logou():
+@app.route('/logout', methods=['POST'])
+def logout():
     username=session['username']
     ref.child(username).update({
         'isLoggedIn':0
@@ -147,26 +147,31 @@ def getBlock():
 @app.route('/find',methods=['POST'])
 def find():
     data = request.get_json()
+    username = session['username']
     friendname = data['fn']
-    print(friendname)
-    snapshot = ref.child(friendname).child('password').get()
-    print(snapshot)
-    limit = len(friendname) // 2 + 1
+    #print(friendname)
+    #limit = len(friendname) // 2 + 1
     listofchildren = ref.order_by_child("username").get() # this is the list of people
-    best=""
-    cor=0
+    best = ""
+    cor = 0
     for friend in listofchildren:
         #Code for query goes here
-        current =friend
-        for i in range(0,min(len (friendname), len(current))):
-            k=lcs(friendname,current)
-            if(k >= cor):
-                best=current
-                cor=k
-    print(best)
-    if not best:
-        return best, 200 #nothing is found
-    return best,200
+        current = friend
+        k = lcs(friendname,current)
+        if(k >= cor):
+            best = current
+            cor = k
+    #print(best)
+    snapshot = ref.child(username).child('friends').order_by_key().get()
+    for key, val in snapshot.items():
+        if val['name'] == best:
+            return jsonify('added')
+    if not best or best == username:
+        return jsonify('')  # nothing is found
+    ref.child(username).child('friends').push().set({
+        'name': best
+    })
+    return jsonify(best)
 
 
 def lcs(X, Y):

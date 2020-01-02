@@ -5,6 +5,7 @@ import hashlib
 import requests
 from backend.config import Config
 import firebase_admin
+import datetime
 from firebase_admin import credentials
 from firebase_admin import db
 app = Flask(__name__)
@@ -209,6 +210,107 @@ def lcs(X, Y):
 
                 # L[m][n] contains the length of LCS of X[0..n-1] & Y[0..m-1]
     return L[m][n]
+
+@app.route('/feed', methods=['GET'])
+def feed():
+    username = session['username']
+    snapshot = ref.child(username).child('friends').order_by_key().get()
+    if snapshot is not None:
+        friends = []
+        for key, val in snapshot.items():
+            friends.append(val['name'])
+        day = datetime.datetime.today().weekday()
+        schedict = {}
+        for name in friends:
+            schefsnapshot = ref.child(name).child('blocks').order_by_key().get()
+            schesnapshot = ref.child(username).child('blocks').order_by_key().get()
+            sche = [0] * 144
+            if schesnapshot is not None:
+                for key, val in schesnapshot.items():
+                    if (val['day'] == day):
+                        start = val['start'].split(':')
+                        duration = val['duration']
+                        hours = 0
+                        minutes = int(start[1][0:2])
+                        if (start[1][3:5] == "AM"):
+                            if (int(start[0]) == 12):
+                                hours = 0
+                            else:
+                                hours = hours + int(start[0])
+                        else:
+                            if (int(start[0]) == 12):
+                                hours = 12
+                            else:
+                                hours = hours + 12 + int(start[0])
+                        arrstart = hours * 6 + minutes
+                        for i in range(arrstart, arrstart + duration//10):
+                            sche[i] = 1
+            if schefsnapshot is not None:
+                for key, val in schefsnapshot.items():
+                    if (val['day'] == day):
+                        start = val['start'].split(':')
+                        duration = val['duration']
+                        hours = 0
+                        minutes = int(start[1][0:2])
+                        if (start[1][3:5] == "AM"):
+                            if (int(start[0]) == 12):
+                                hours = 0
+                            else:
+                                hours = hours + int(start[0])
+                        else:
+                            if (int(start[0]) == 12):
+                                hours = 12
+                            else:
+                                hours = hours + 12 + int(start[0])
+                        arrstart = hours * 6 + minutes
+                        for i in range(arrstart, arrstart + duration//10):
+                            sche[i] = 1
+            string = []
+            i = 0
+            while i<144:
+                if (sche[i]==0):
+                    hours = i // 6
+                    minutes = (i % 6)*10
+                    if (minutes==0):
+                        minutes = "00"
+                    else :
+                        minutes = "" + str(minutes)
+                    time = ""
+                    if hours<12:
+                        time = "AM"
+                        if (hours==0):
+                            hours = 12
+                    else:
+                        time = "PM"
+                    i += 1
+                    while i<144 and sche[i]==0:
+                        i += 1
+                    ehours = i // 6
+                    emin = (i % 6) * 10
+                    etime = ""
+                    if (i<144):
+                        if (emin == 0):
+                            emin = "00"
+                        else:
+                            emin = "" + str(emin)
+                        if ehours < 12:
+                            etime = "AM"
+                            if (ehours == 0):
+                                ehours = 12
+                        else:
+                            etime = "PM"
+                    else:
+                        ehours = "12"
+                        emin = "00"
+                        etime = "AM"
+                    string.append("" + str(hours) + ":" + str(minutes) + " " + str(time) + " to " + str(ehours) + ":" + str(emin) + " " + str(etime))
+                else:
+                    i += 1
+            schedict[name] = json.dumps(string)
+        #print(schedict)
+        return jsonify(schedict)
+    else:
+        return jsonify("-1")
 
 if __name__ == '__main__':
     app.run()

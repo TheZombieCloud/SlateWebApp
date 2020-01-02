@@ -14,7 +14,8 @@ class ProfilePage extends React.Component{
              activemail: false,
              friendname: '',
              added: '-1',
-             removed: '-1'
+             removed: '-1',
+             feed: (<div></div>)
          };
          this.togglePopup = this.togglePopup.bind(this);
          this.togglePopupe = this.togglePopupe.bind(this);
@@ -25,6 +26,9 @@ class ProfilePage extends React.Component{
          this.handleUnfriend = this.handleUnfriend.bind(this);
          this.getAdded = this.getAdded.bind(this);
          this.getRemoved = this.getRemoved.bind(this);
+         this.getFeed = this.getFeed.bind(this);
+         this.generateps = this.generateps.bind(this);
+         this.getFeed();
      }
 
      getAdded(){
@@ -55,12 +59,14 @@ class ProfilePage extends React.Component{
          this.setState({
              added: '-1'
          })
+         this.forceUpdate();
      }
 
      togglePopupu() {
          this.setState({
              removed: '-1'
          })
+         this.forceUpdate();
      }
 
      logout() {
@@ -140,6 +146,46 @@ class ProfilePage extends React.Component{
          event.preventDefault();
      }
 
+     getFeed() {
+         fetch('/feed', {
+             method: 'GET'
+         }).then(response=>{
+             return response.json()
+         }).then(data=>{
+             if (data==='-1'){
+                 this.setState({
+                     feed: (<div>
+                                <p className = "smallfont">Nothing new today. Add some friends first.</p>
+                            </div>)
+                 });
+             }
+             else{
+                 var ps = [];
+                 for (var i in data){
+                    ps.push(<div>
+                        <h1 className = "titlef">{i}</h1>
+                        <p className = "paraf">Available from:</p>
+                        <p className = "entryf">{this.generateps(JSON.parse(data[i]))}</p>
+                    </div>);
+                 }
+                 this.setState({
+                     feed: (ps)
+                 })
+             }
+             this.forceUpdate();
+         })
+     }
+
+     generateps(data){
+         var ps = [];
+         for (var i = 0;i<data.length;i++) {
+             ps.push(<p>
+                 {data[i]}
+             </p>)
+         }
+         return ps;
+     }
+
      render(){
          return(
              <div>
@@ -173,6 +219,7 @@ class ProfilePage extends React.Component{
                              </div>
                              <div class = "feed">
                                  <h1>Feed</h1>
+                                 {this.state.feed}
                              </div>
                          </div>
                      </div>

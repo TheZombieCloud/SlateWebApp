@@ -52,6 +52,7 @@ svg {
     flex-direction: row;
     font-size: 30px;
     color: #fa9038;
+    width: 100%;
 }
 
 .titlepp {
@@ -66,6 +67,7 @@ svg {
     align: left;
     float: left;
     width: 100%;
+    flex-basis: 25%;
     margin-top: 5ch;
     text-align: left;
     margin-left: 7vw;
@@ -73,6 +75,7 @@ svg {
 
 .feed {
     margin-left: 10vw;
+    flex-basis: 75%;
 }
 
 .clear {
@@ -203,4 +206,25 @@ svg {
 .friendbuttons {
     display: flex;
     flex-direction: row;
+}
+
+.smallfont {
+    font-size: 25px;
+}
+
+.titlef {
+    font-size: 35px;
+    margin: 0;
+}
+
+.paraf {
+    margin: 0;
+    margin-top: 3vh;
+    font-size: 20px;
+}
+
+.entryf {
+    margin: 0;
+    margin-top: 1vh;
+    font-size: 15px;
 }

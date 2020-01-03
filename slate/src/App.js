@@ -28,9 +28,7 @@ function returnLog(){
 }
 
 function App() {
-    if (localStorage.getItem('auth')==='false') {
-        checkLogged();
-    }
+    checkLogged();
     return (
         <div className="App">
             <Router history = {history}>

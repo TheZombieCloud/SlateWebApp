@@ -124,10 +124,6 @@ const Splash = () => {
                             <p>328 Regina Street North<br/>Suite 1103/1104<br/>(416)219-7460</p>
                             <p class = "copyright">&copy; Slate 2019</p>
                         </div>
-                        <div class = "footer2">
-                            <h3>Social</h3>
-                            <p>Facebook<br/>Instagram<br/>LinkedIn</p>
-                        </div>
                     </footer>
                 </div>
         </div>

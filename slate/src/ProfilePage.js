@@ -59,14 +59,14 @@ class ProfilePage extends React.Component{
          this.setState({
              added: '-1'
          })
-         this.forceUpdate();
+         window.location.reload(true);
      }
 
      togglePopupu() {
          this.setState({
              removed: '-1'
          })
-         this.forceUpdate();
+         window.location.reload(true);
      }
 
      logout() {

@@ -7,6 +7,7 @@ import Navbar from './Navbar.js';
 import history from './history.js';
 
 function checkLogged() {
+    localStorage.setItem('auth', 'false');
     fetch('/login', {
         method: 'GET',
     }).then(response => {
@@ -15,7 +16,6 @@ function checkLogged() {
             localStorage.setItem('auth', 'true');
             return;
         } else{
-            localStorage.setItem('auth', 'false');
             return;
         }
     });
@@ -28,7 +28,9 @@ function returnLog(){
 }
 
 function App() {
-    checkLogged();
+    if (localStorage.getItem('auth')==='false') {
+        checkLogged();
+    }
     return (
         <div className="App">
             <Router history = {history}>

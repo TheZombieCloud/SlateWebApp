@@ -151,15 +151,62 @@ class Schedule extends React.Component {
             var end = this.blocks[i].state.end;
             var day = this.blocks[i].state.day;
             if (block.state.day===day){
-                if ((block.state.start<end&&block.state.start>start)||(block.state.end<end&&block.state.end>start)||(block.state.start===start&&block.state.end===end)){
+                var start11 = block.state.start.split(":");
+                var start12 = start11[1].split(" ");
+                var end11 = block.state.end.split(":");
+                var end12 = end11[1].split(" ");
+                var start21 = start.split(":");
+                var start22 = start21[1].split(" ");
+                var end21 =  end.split(":");
+                var end22 = end21[1].split(" ");
+                if (start12[1]==="AM"){
+                    if (start11[0]==="12") {
+                        start11[0] = "0";
+                    }
+                }
+                if (end12[1]==="PM") {
+                    if (end11[0]==="12"){
+                        end11[0] = "0";
+                    }
+                    end11[0] = parseInt(end11[0]) + 12;
+                }
+                else if (end12[1]==="AM"){
+                    if (end11[0]==="12")
+                }
+                if (start22[1]==="AM" && start21[0]==="12"){
+                    start21[0] = "0";
+                }
+
+                if ((block.state.start<end&&block.state.start>=start)||(block.state.end<=end&&block.state.end>start)){
                     return true;
                     break;
                 }
             }
         }
-        if (block.state.start>=block.state.end){
+        var start = block.state.start.split(":");
+        var start2 = start[1].split(" ");
+        var end = block.state.end.split(":");
+        var end2 = end[1].split(" ");
+        if (start2[1]==="PM"&&end2[1]==="AM"){
             return true;
         }
+        else if (start2[1]===end2[1]){
+            if (start[0]==="12"){
+                start[0] = "0";
+            }
+            if (end[0]==="12"){
+                end[0] = "24";
+            }
+            if (parseInt(start[0])>parseInt(end[0])){
+                return true;
+            }
+            else if (parseInt(start[0])===parseInt(end[0])){
+                if (parseInt(start[1])>=parseInt(end[1])){
+                    return true;
+                }
+            }
+        }
+
         this.blocks.push(block);
         fetch('/addblock', {
             method: 'POST',

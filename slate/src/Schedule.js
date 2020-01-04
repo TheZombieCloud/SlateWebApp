@@ -168,6 +168,9 @@ class Schedule extends React.Component {
     }
     static addScheduleBlock(block){
         //Retrieves schedule blocks from Database and then adds new block
+        if (block.state.start===block.state.end){
+            return true;
+        }
         var bstart=Schedule.convertion(block.state.start);
         var bend=Schedule.convertion(block.state.end);
         for (var i = 0;i<this.blocks.length;i++){

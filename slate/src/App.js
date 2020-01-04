@@ -28,7 +28,7 @@ function returnLog(){
 }
 
 function App() {
-    if (localStorage.getItem('auth')==='false') {
+    if (localStorage.getItem('auth')==='false' || localStorage.getItem('auth')===null) {
         checkLogged();
     }
     return (

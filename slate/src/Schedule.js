@@ -143,46 +143,53 @@ class Schedule extends React.Component {
             }
         })
     }
+    static  convertion(time){
 
+                 var start11 = time.split(":");
+                //start11[0] is hours
+                var start12 = start11[1].split(" ");
+
+                    if (start11[0]==="12") {
+                        if (start12[1] === 'AM') {
+                            start12[1] = 'PM';
+                        } else {
+                            start12[1] = 'AM';
+                        }
+                    }
+                //start12[0] is minute
+                //start12[1] is AM/PM
+                var bstart=0;
+                bstart=parseInt(start11[0])*60+parseInt(start12[0]);
+                if(start12[1]==='PM'){
+                    bstart=bstart+12*60;
+                }
+                bstart=bstart%(24*60);
+                return bstart;
+    }
     static addScheduleBlock(block){
         //Retrieves schedule blocks from Database and then adds new block
+        var bstart=Schedule.convertion(block.state.start);
+        var bend=Schedule.convertion(block.state.end);
         for (var i = 0;i<this.blocks.length;i++){
             var start = this.blocks[i].state.start;
             var end = this.blocks[i].state.end;
             var day = this.blocks[i].state.day;
+            //parseInt
             if (block.state.day===day){
-                var start11 = block.state.start.split(":");
-                var start12 = start11[1].split(" ");
-                var end11 = block.state.end.split(":");
-                var end12 = end11[1].split(" ");
-                var start21 = start.split(":");
-                var start22 = start21[1].split(" ");
-                var end21 =  end.split(":");
-                var end22 = end21[1].split(" ");
-                if (start12[1]==="AM"){
-                    if (start11[0]==="12") {
-                        start11[0] = "0";
-                    }
-                }
-                if (end12[1]==="PM") {
-                    if (end11[0]==="12"){
-                        end11[0] = "0";
-                    }
-                    end11[0] = parseInt(end11[0]) + 12;
-                }
-                else if (end12[1]==="AM"){
-                    if (end11[0]==="12")
-                }
-                if (start22[1]==="AM" && start21[0]==="12"){
-                    start21[0] = "0";
-                }
-
-                if ((block.state.start<end&&block.state.start>=start)||(block.state.end<=end&&block.state.end>start)){
+                var cstart= Schedule.convertion(start);
+                var cend=Schedule.convertion(end);
+                if ((bstart<cend&&bstart>cstart)||(cstart<bend&&cstart>bstart)){
                     return true;
-                    break;
+                }
+                if ((bend<cend&&bend>cstart)||(cend<bend&&cend>bstart)){
+                    return true;
                 }
             }
+
+        if(bstart>bend) {
+            return true;
         }
+        /*
         var start = block.state.start.split(":");
         var start2 = start[1].split(" ");
         var end = block.state.end.split(":");
@@ -204,7 +211,7 @@ class Schedule extends React.Component {
                 if (parseInt(start[1])>=parseInt(end[1])){
                     return true;
                 }
-            }
+            }*/
         }
 
         this.blocks.push(block);

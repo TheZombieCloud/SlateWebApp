@@ -3,7 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_restplus import Api
 import hashlib
 import requests
-from backend.config import Config
+from config import Config
 import firebase_admin
 import datetime
 from firebase_admin import credentials

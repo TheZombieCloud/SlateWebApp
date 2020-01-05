@@ -19,7 +19,16 @@ C:\Users\TheZombieCloud\Documents\GitHub\SlateWebApp\backend>python main.py
 ### Prerequisites
 * Install [npm](https://www.npmjs.com/get-npm) with Node.js.
 * Ensure that the latest version of pip is installed by typing `pip --version` in your terminal.
-* Install which python libraries bruh?
+* Install `firebase_admin’ and ‘flask’ with pip.
+
+```
+C:\Users\TheZombieCloud\Documents\GitHub\SlateWebApp\slate>pip install firebase_admin
+```
+
+```
+C:\Users\TheZombieCloud\Documents\GitHub\SlateWebApp\slate>pip install flask
+```
+
 
 ## Built With
 

@@ -1,2 +1,41 @@
-# SlateWebApp
-A social media platform with scheduling capabilities.
+# Slate
+
+Slate is an online platform allowing users to dynamically create time schedules and generate comparsions between peer schedules that automate the time management aspect of group work.
+
+## Getting Started
+
+To get started, make a clone of this project and go to `\SlateWebApp\slate` in your terminal. Run `npm start`, which will display the webpage on `localhost:3000`.
+
+```
+C:\Users\TheZombieCloud\Documents\GitHub\SlateWebApp\slate>npm start
+```
+
+Then, go to `\SlateWebApp\backend`, and run `python main.py`. The server should now be running on `localhost:5000`.
+
+```
+C:\Users\TheZombieCloud\Documents\GitHub\SlateWebApp\backend>python main.py
+```
+
+### Prerequisites
+* Install [npm](https://www.npmjs.com/get-npm) with Node.js.
+* Ensure that the latest version of pip is installed by typing `pip --version` in your terminal.
+* Install which python libraries bruh?
+
+## Built With
+
+* [React](https://reactjs.org/) - Frontend javascript framework
+* [Flask](https://palletsprojects.com/p/flask/) - Backend python framework
+* [Firebase](https://firebase.google.com/) - Web development platform
+
+## Versioning
+
+Version 1.0
+
+## Upcoming updates
+* Friends page
+* Schedule comparsion features
+* Improved schedule interface
+
+## License
+
+[MIT](https://choosealicense.com/licenses/mit/)

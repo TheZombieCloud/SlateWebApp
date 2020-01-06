@@ -5,7 +5,7 @@ Slate is an online platform allowing users to dynamically create time schedules 
 ### Prerequisites
 * Install [npm](https://www.npmjs.com/get-npm) with Node.js.
 * Ensure that the latest version of pip is installed by typing `pip --version` in your terminal.
-* Install `firebase_admin’ and ‘flask’ with pip.
+* Install `firebase_admin` and `flask` with pip.
 
 ```
 C:\Users\TheZombieCloud\Documents\GitHub\SlateWebApp\slate>pip install firebase_admin

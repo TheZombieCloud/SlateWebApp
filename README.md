@@ -40,7 +40,7 @@ Profile Page:
 
 ![Profile Page](/screenshots/profile.PNG?raw=true "Profile Page")
 
-Schedule Page:
+Schedule Page (The schedule is built with increments of 10 minutes):
 
 ![Schedule Page](/screenshots/schedule.PNG?raw=true "Schedule Page")
 
@@ -60,7 +60,6 @@ Version 1.0
 
 ## Upcoming updates
 * Friends page
-* Schedule comparsion features
 * Improved schedule interface
 
 ## License

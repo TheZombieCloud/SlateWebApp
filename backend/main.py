@@ -282,6 +282,8 @@ def feed():
                             hours = 12
                     else:
                         time = "PM"
+                        if hours>12:
+                            hours -= 12
                     i += 1
                     while i<144 and sche[i]==0:
                         i += 1
@@ -298,6 +300,8 @@ def feed():
                             if (ehours == 0):
                                 ehours = 12
                         else:
+                            if ehours > 12:
+                                ehours -= 12
                             etime = "PM"
                     else:
                         ehours = "12"

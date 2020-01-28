@@ -52,7 +52,7 @@ Change Password:
 
 * [React](https://reactjs.org/) - Frontend javascript framework
 * [Flask](https://palletsprojects.com/p/flask/) - Backend python framework
-* [Firebase](https://firebase.google.com/) - Server
+* [Firebase](https://firebase.google.com/) - Database
 
 ## Versioning
 
